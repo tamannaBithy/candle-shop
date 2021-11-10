@@ -1,0 +1,72 @@
+[
+    {
+        "title": "PASSION FRUIT",
+        "image": "https://i.ibb.co/RCy2F1K/shop-img-458.jpg",
+        "description": "CANDLES, OILS, PACKAGING",
+        "price": 20,
+        "review": "4.4"
+    },
+    {
+        "title": "FRESH RAIN",
+        "image": "https://i.ibb.co/GCn87Mt/shop-img-407.jpg",
+        "description": "CANDLES, OILS, PACKAGING",
+        "price": 13,
+        "review": "4.1"
+    },
+    {
+        "title": "LINDEN TREE",
+        "image": "https://i.ibb.co/S57JbnM/shop-img-406.jpg",
+        "description": "CANDLES, OILS, PACKAGING",
+        "price": 25,
+        "review": "3.7"
+    },
+    {
+        "title": "SEA MINERALS",
+        "image": "https://i.ibb.co/DfVSK3Q/shop-img-405.jpg",
+        "description": "CANDLES, OILS, PACKAGING",
+        "price": 14,
+        "review": "5"
+    },
+    {
+        "title": "CACTUS FLOWER",
+        "image": "https://i.ibb.co/0fXBQtp/shop-img-404.jpg",
+        "description": "CANDLES, OILS, PACKAGING",
+        "price": 21,
+        "review": "4.8"
+    },
+    {
+        "title": "CLEAN COTTON",
+        "image": "https://i.ibb.co/Gc36KYf/shop-img-401.jpg",
+        "description": "CANDLES, OILS, PACKAGING",
+        "price": 11,
+        "review": "3"
+    },
+    {
+        "title": "BEACH WALK",
+        "image": "https://i.ibb.co/DgPXQn8/shop-img-400.jpg",
+        "description": "CANDLES, OILS, PACKAGING",
+        "price": 30,
+        "review": "3.9"
+    },
+    {
+        "title": "DRIED WOOD",
+        "image": "https://i.ibb.co/NtFCmxd/shop-img-284-1.jpg ",
+        "description": "CANDLES, OILS, PACKAGING",
+        "price": 22,
+        "review": "4.2"
+    },
+    {
+        "title": "TRIPLE LIGHT",
+        "image": "https://i.ibb.co/WvQV6Mp/shop-img-290.jpg",
+        "description": "CANDLES, OILS, PACKAGING",
+        "price": 12,
+        "review": "4.8"
+    },
+    {
+        "title": "JASMINE CANDLE",
+        "image": "https://i.ibb.co/dQqfFvc/shop-img-142-1.jpg",
+        "description": "CANDLES, OILS, PACKAGING",
+        "price": 10,
+        "review": "4"
+    }
+]

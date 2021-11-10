@@ -11,6 +11,7 @@ import Header from './Pages/Shared/Header/Header';
 import Login from './Pages/Login/Login/Login';
 import Notfound from './Pages/Notfound/Notfound';
 import Footer from './Pages/Shared/Footer/Footer';
+import Register from './Pages/Login/Register/Register';
 
 
 
@@ -50,6 +51,9 @@ function App() {
 
               <Route path="/login">
                 <Login></Login>
+              </Route>
+              <Route path="/register">
+                <Register />
               </Route>
               <Route path="*">
                 <Notfound></Notfound>

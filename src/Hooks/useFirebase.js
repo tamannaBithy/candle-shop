@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuthentication from './../Pages/Login/Firebase/firebase.init';
 
@@ -7,19 +7,82 @@ initializeAuthentication();
 const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const [authError, setAuthError] = useState('');
 
 
     const auth = getAuth();
-
+    const provider = new GoogleAuthProvider();
 
 
     // for google auth
-    const signInUsingGoogle = () => {
+    const signInWithGoogle = (location, history) => {
         setIsLoading(true);
-        const googleProvider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                const user = result.user;
 
-        return signInWithPopup(auth, googleProvider)
+                // save user to database
+                // saveUser(user.email, user.displayName, 'PUT');
 
+                const destination = location?.state?.from || '/home';
+                history.replace(destination);
+
+                setAuthError('');
+            }).catch((error) => {
+                setAuthError(error.message);
+            }).finally(() => setIsLoading(false));
+    }
+
+
+
+    // for create new user
+    const registerUser = (email, password, name, history) => {
+        setIsLoading(true);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                setAuthError('');
+                const newUser = { email, displayName: name };
+                setUser(newUser);
+
+                // save user to database
+                // saveUser(email, name, 'POST');
+
+
+                // send name to firebase after creation
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                })
+                    .then(() => {
+                    })
+                    .catch((error) => {
+                    });
+
+                history.replace('/home');
+            })
+            .catch((error) => {
+                setAuthError(error.message);
+
+            })
+            .finally(() => setIsLoading(false));
+    }
+
+
+
+
+    // for sign in a user
+    const loginUser = (email, password, location, history) => {
+        setIsLoading(true);
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+
+                const destination = location?.state?.from || '/home';
+                history.replace(destination);
+                setAuthError('');
+            })
+            .catch((error) => {
+                setAuthError(error.message);
+            })
+            .finally(() => setIsLoading(false));
     }
 
 
@@ -54,9 +117,11 @@ const useFirebase = () => {
     return {
         user,
         isLoading,
-        signInUsingGoogle,
+        authError,
+        registerUser,
+        loginUser,
+        signInWithGoogle,
         logOut,
-        setIsLoading,
         setUser
     }
 }
