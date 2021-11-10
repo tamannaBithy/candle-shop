@@ -12,6 +12,10 @@ import Login from './Pages/Login/Login/Login';
 import Notfound from './Pages/Notfound/Notfound';
 import Footer from './Pages/Shared/Footer/Footer';
 import Register from './Pages/Login/Register/Register';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
+import Placeorder from './Pages/Placeorder/Placeorder';
+import Explore from './Pages/Explore/Explore';
+import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 
 
 
@@ -29,6 +33,9 @@ function App() {
               <Route path="/home">
                 <Home />
               </Route>
+              <Route path="/explore">
+                <Explore />
+              </Route>
 
 
               {/* <PrivateRoute path="/addService">
@@ -41,11 +48,15 @@ function App() {
 
               <PrivateRoute path="/manage">
                 <ManageOrder></ManageOrder>
+              </PrivateRoute> */}
+
+              <PrivateRoute path="/placeOrder/:productId">
+                <Placeorder></Placeorder>
               </PrivateRoute>
 
-              <PrivateRoute path="/placeOrder/:serviceId">
-                <PlaceOrder></PlaceOrder>
-              </PrivateRoute> */}
+              <PrivateRoute path="/dashboard">
+                <Dashboard></Dashboard>
+              </PrivateRoute>
 
 
 

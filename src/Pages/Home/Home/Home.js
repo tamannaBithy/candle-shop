@@ -1,16 +1,18 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import Products from '../Products/Products';
 // import Banner from '../Banner/Banner';
 // import ContactUs from '../ContactUs/ContactUs';
-// import Services from '../Services/Services';
+
 
 const Home = () => {
     return (
         <Container>
             {/* <Banner></Banner>
-            <Services></Services>
+           
            
             <ContactUs></ContactUs> */}
+            <Products></Products>
         </Container>
     );
 };
