@@ -26,6 +26,7 @@ const useFirebase = () => {
                 saveUser(user.email, user.displayName, 'PUT');
 
 
+
                 const destination = location?.state?.from || '/home';
                 history.replace(destination);
 
