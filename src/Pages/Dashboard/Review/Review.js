@@ -2,7 +2,8 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import useAuth from '../../../Hooks/useAuth';
 import axios from 'axios';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
+
 
 const Review = () => {
 
@@ -16,7 +17,13 @@ const Review = () => {
             .then(res => {
                 // console.log("amar data", res.data);
                 if (res.data.insertedId) {
-                    swal("Good job!", "You have reviewed the website!", "success");
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Your work has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                     reset();
 
                 }

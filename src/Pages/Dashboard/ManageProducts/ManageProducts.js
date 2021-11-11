@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import Fade from 'react-reveal/Fade';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
+
 
 
 const ManageProducts = () => {
@@ -19,22 +20,41 @@ const ManageProducts = () => {
     // for delete
     const handleDeleteProduct = (id) => {
         // console.log(id);
-        swal("Are you sure?", "Once deleted, you will not be able to book again", "error");
 
 
-        fetch(`https://limitless-everglades-29893.herokuapp.com/deleteMainProducts/${id}`, {
-            method: "DELETE",
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`https://limitless-everglades-29893.herokuapp.com/deleteMainProducts/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(result => {
+                        if (result.deletedCount) {
+
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+
+                            const remainingUsers = products.filter(order => order._id !== id);
+                            setProducts(remainingUsers);
+                            setIsDelete(true);
+                        } else {
+                            setIsDelete(false);
+                        }
+                    })
+            }
+
         })
-            .then((res) => res.json())
-            .then((result) => {
-                if (result.deletedCount) {
-                    const remainingUsers = products.filter(order => order._id !== id);
-                    setProducts(remainingUsers);
-                    setIsDelete(true);
-                } else {
-                    setIsDelete(false);
-                }
-            });
     };
 
 

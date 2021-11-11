@@ -5,10 +5,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 import useAuth from '../../Hooks/useAuth';
-import swal from 'sweetalert';
+
 // import './Placeorder.css';
 import Fade from 'react-reveal/Fade';
 import Typist from 'react-typist';
+import Swal from 'sweetalert2';
 
 const Placeorder = () => {
 
@@ -47,7 +48,13 @@ const Placeorder = () => {
             .then(res => {
                 // console.log("amar data", res.data);
                 if (res.data.insertedId) {
-                    swal("Good job!", "You have booked the service!", "success");
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Your work has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                     reset();
 
                 }
@@ -81,31 +88,33 @@ const Placeorder = () => {
                     <Fade left>
 
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <input
-                                {...register("title", { required: true })}
+
+                            {productDetails?.title && <input
+                                {...register("title")}
                                 defaultValue={productDetails?.title}
                                 className="p-2 m-2 w-100 input-field"
                             />
+                            }
 
-                            <input
+                            {displayName && <input
                                 {...register("name")}
                                 defaultValue={displayName}
 
                                 className="p-2 m-2 w-100 input-field"
-                            />
+                            />}
 
-                            <input
-                                {...register("image", { required: true })}
+                            {productDetails?.image && <input
+                                {...register("image")}
                                 defaultValue={productDetails?.image}
                                 className="p-2 m-2 w-100 input-field"
-                            />
+                            />}
 
-                            <input
-                                {...register("price", { required: true })}
+                            {productDetails?.price && <input
+                                {...register("price")}
                                 defaultValue={productDetails?.price}
                                 type="number"
                                 className="p-2 m-2 w-100 input-field"
-                            />
+                            />}
 
                             <select {...register("model")} className="p-2 m-2 w-100">
                                 <option value="premium">premium</option>

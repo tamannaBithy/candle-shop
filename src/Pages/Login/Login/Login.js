@@ -5,6 +5,7 @@ import { Alert, Container, Spinner } from "react-bootstrap";
 import useAuth from '../../../Hooks/useAuth';
 import { useForm } from "react-hook-form";
 import { NavLink } from 'react-router-dom';
+import GoogleButton from 'react-google-button';
 
 
 
@@ -86,7 +87,7 @@ const Login = () => {
 
                 <br />
                 <br />
-                <button onClick={handleGoogleLogin} className="btn btn-outline-secondary btn-lg py-3 mb-4" type="submit"><i className="fab fa-google me-3"></i>Sign In with Google</button>
+                <GoogleButton onClick={handleGoogleLogin} />
                 <br />
                 <br />
 

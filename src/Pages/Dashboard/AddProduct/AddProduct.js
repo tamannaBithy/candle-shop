@@ -2,7 +2,8 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
+
 
 
 const AddProduct = () => {
@@ -20,7 +21,13 @@ const AddProduct = () => {
         axios.post('https://limitless-everglades-29893.herokuapp.com/products', data)
             .then(res => {
                 if (res.data.insertedId) {
-                    swal("Great job!", "You have added a product!", "success");
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Your work has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                     reset();
                 }
             })

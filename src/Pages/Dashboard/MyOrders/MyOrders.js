@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Table } from 'react-bootstrap';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 import useAuth from '../../../Hooks/useAuth';
 
 
@@ -22,20 +22,40 @@ const MyOrders = () => {
 
     const handleDeleteProduct = (id) => {
         // console.log(id);
-        swal("Are you sure?", "Once deleted, you will not be able to book again", "error");
 
-        fetch(`https://limitless-everglades-29893.herokuapp.com/deleteProduct/${id}`, {
-            method: "DELETE",
-            headers: { "Content-type": "application/json" },
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`https://limitless-everglades-29893.herokuapp.com/deleteProduct/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(result => {
+                        if (result.deletedCount) {
+
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+
+                            const remainingUsers = orders.filter(order => order._id !== id);
+                            setOrders(remainingUsers);
+                            setIsDelete(true);
+                        } else {
+                            setIsDelete(false);
+                        }
+                    })
+            }
+
         })
-            .then((res) => res.json())
-            .then((result) => {
-                if (result.deletedCount) {
-                    setIsDelete(true);
-                } else {
-                    setIsDelete(false);
-                }
-            });
     };
 
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Table } from 'react-bootstrap';
-import swal from 'sweetalert';
 import { useForm } from "react-hook-form";
+import Swal from 'sweetalert2';
 
 const ManageOrders = () => {
 
@@ -21,29 +21,44 @@ const ManageOrders = () => {
     // for delete
     const handleDeleteProduct = (id) => {
         // console.log(id);
-        swal("Are you sure?", "Once deleted, you will not be able to book again", "error");
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`https://limitless-everglades-29893.herokuapp.com/deleteProduct/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(result => {
+                        if (result.deletedCount) {
 
-        fetch(`https://limitless-everglades-29893.herokuapp.com/deleteProduct/${id}`, {
-            method: "DELETE",
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+
+                            const remainingUsers = manageOrders.filter(order => order._id !== id);
+                            setManageOrders(remainingUsers);
+                            setIsDelete(true);
+                        } else {
+                            setIsDelete(false);
+                        }
+                    })
+            }
+
         })
-            .then((res) => res.json())
-            .then((result) => {
-                if (result.deletedCount) {
-
-                    const remainingUsers = manageOrders.filter(order => order._id !== id);
-                    setManageOrders(remainingUsers);
-                    setIsDelete(true);
-                } else {
-                    setIsDelete(false);
-                }
-            });
-    };
-
+    }
 
 
     // for updating status
     const { register, handleSubmit } = useForm();
-    const [status, setStatus] = useState("");
     const [orderId, setOrderId] = useState("");
 
 
@@ -53,15 +68,18 @@ const ManageOrders = () => {
 
     const onSubmit = (data) => {
         console.log(data);
-        swal("Yesss!", `Your orded have been ${data.status}!`, "info");
 
-        fetch(`https://limitless-everglades-29893.herokuapp.com/manageOrders/${orderId}`, {
+        fetch(`http://localhost:5000/manageOrders/${orderId}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
         })
             .then((res) => res.json())
-            .then((result) => setStatus(result));
+            .then((result) => {
+                if (result.modifiedCount === 1) {
+                    alert("Orders updated successfully")
+                }
+            });
     };
 
 
@@ -110,35 +128,6 @@ const ManageOrders = () => {
 
                 ))}
             </Table>
-
-
-            {/* {manageOrders?.map((pd) => (
-                            <div key={pd._id} className="col-md-6 col-lg-4">
-                                <div className=" border border p-2 m-2">
-                                    <h5>{pd.title}</h5>
-                                    <h6>{pd.price}</h6>
-                                    <p>{pd.email}</p>
-                                    
-
-
-                                    <form onSubmit={handleSubmit(onSubmit)}>
-                                        <select
-                                            onClick={() => handleOrderId(pd?._id)}
-                                            {...register("status")}
-                                        >
-                                            <option value={pd.status}>{pd.status}</option>
-                                            <option value="Shipped">Shipped</option>
-                                            <option value="Delivered">Delivered</option>
-                                        </select>
-                                        <input type="submit" value="update" />
-                                    </form>
-
-
-                                    <button onClick={() => handleDeleteProduct(pd._id)} className="btn btn-danger m-2">Delete</button>
-                                </div>
-                            </div>
-                        ))} */}
-
 
         </Container>
     );
