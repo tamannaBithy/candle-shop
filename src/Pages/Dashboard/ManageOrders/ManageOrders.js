@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Table } from 'react-bootstrap';
 import swal from 'sweetalert';
-import Zoom from 'react-reveal/Zoom';
 import { useForm } from "react-hook-form";
 
 const ManageOrders = () => {
@@ -9,6 +8,7 @@ const ManageOrders = () => {
 
     const [manageOrders, setManageOrders] = useState([]);
     const [isDelete, setIsDelete] = useState(null);
+
 
 
     useEffect(() => {
@@ -71,17 +71,54 @@ const ManageOrders = () => {
             <h1>Total Booked Services : {manageOrders.length}</h1>
 
 
-            <div className="all-products mt-5">
-                <Zoom>
-                    <div className="row container text-center">
+            <Table responsive bordered hover>
+                <thead >
+                    <tr class="table-dark">
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>email</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                {manageOrders?.map((pd, index) => (
+                    <tbody key={pd._id}>
+                        <tr>
+                            <td>{index}</td>
+                            <td>{pd.title}</td>
+                            <td>{pd.price}</td>
+                            <td>{pd.email}</td>
+                            <td>
+                                <form onSubmit={handleSubmit(onSubmit)}>
+                                    <select
+                                        onClick={() => handleOrderId(pd?._id)}
+                                        {...register("status")}
+                                    >
+                                        <option value={pd.status}>{pd.status}</option>
+                                        <option value="Shipped">Shipped</option>
+                                        <option value="Delivered">Delivered</option>
+                                    </select>
+                                    <input type="submit" value="update" />
+                                </form>
 
-                        {manageOrders?.map((pd) => (
+
+                            </td>
+                            <td><button onClick={() => handleDeleteProduct(pd._id)} className="btn btn-danger m-2">Delete</button></td>
+                        </tr>
+                    </tbody>
+
+                ))}
+            </Table>
+
+
+            {/* {manageOrders?.map((pd) => (
                             <div key={pd._id} className="col-md-6 col-lg-4">
                                 <div className=" border border p-2 m-2">
                                     <h5>{pd.title}</h5>
                                     <h6>{pd.price}</h6>
                                     <p>{pd.email}</p>
-                                    {/* <button className="btn btn-info m-2">{pd.status}</button> */}
+                                    
 
 
                                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -100,12 +137,9 @@ const ManageOrders = () => {
                                     <button onClick={() => handleDeleteProduct(pd._id)} className="btn btn-danger m-2">Delete</button>
                                 </div>
                             </div>
-                        ))}
+                        ))} */}
 
 
-                    </div>
-                </Zoom>
-            </div>
         </Container>
     );
 };

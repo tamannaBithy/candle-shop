@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Table } from 'react-bootstrap';
 import swal from 'sweetalert';
-import Zoom from 'react-reveal/Zoom';
 import useAuth from '../../../Hooks/useAuth';
 
 
@@ -45,24 +44,30 @@ const MyOrders = () => {
         <Container className="mt-5">
             <h1>Your Booked Service : {orders.length}</h1>
 
+            <Table responsive bordered hover>
+                <thead >
+                    <tr class="table-dark">
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                {orders?.map((pd, index) => (
+                    <tbody key={pd._id}>
+                        <tr>
+                            <td>{index}</td>
+                            <td>{pd.title}</td>
+                            <td>{pd.price}</td>
+                            <td>{pd.email}</td>
+                            <td><button onClick={() => handleDeleteProduct(pd._id)} className="btn btn-danger m-2">delete</button></td>
+                        </tr>
+                    </tbody>
 
-            <div className="all-products mt-5">
-                <Zoom>
-                    <div className="row container text-center">
+                ))}
+            </Table>
 
-                        {orders?.map((pd) => (
-                            <div key={pd._id} className="col-md-6 col-lg-4">
-                                <div className=" border border p-2 m-2">
-                                    <h5>{pd.title}</h5>
-                                    <h6>{pd.price}</h6>
-                                    <p>{pd.email}</p>
-                                    <button onClick={() => handleDeleteProduct(pd._id)} className="btn btn-danger m-2">delete</button>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </Zoom>
-            </div>
         </Container>
     );
 };

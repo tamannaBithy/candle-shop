@@ -15,6 +15,7 @@ import ManageProducts from '../ManageProducts/ManageProducts';
 import MyOrders from '../MyOrders/MyOrders';
 import Payment from '../Payment/Payment';
 import Review from '../Review/Review';
+import WelcomePage from '../WelcomePage/WelcomePage';
 
 const Dashboard = () => {
 
@@ -32,8 +33,12 @@ const Dashboard = () => {
 
                     <h5>Dashboard</h5>
 
+                    <Link to={`${url}`}>
+                        <li className="dashboard-menu mt-5">Welcome Page</li>
+                    </Link>
+
                     {!admin && <div>
-                        <Link to={`${url}`}>
+                        <Link to={`${url}/myOrder`}>
                             <li className="dashboard-menu mt-5">My Orders</li>
                         </Link>
 
@@ -77,7 +82,13 @@ const Dashboard = () => {
                 <Col xs={10} md={9}>
 
                     <Switch>
+
+
                         <Route exact path={path}>
+                            <WelcomePage></WelcomePage>
+                        </Route>
+
+                        <Route exact path={`${path}/myOrder`}>
                             <MyOrders></MyOrders>
                         </Route>
                         <Route exact path={`${path}/pay`}>
