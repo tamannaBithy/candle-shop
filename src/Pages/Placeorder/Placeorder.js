@@ -13,7 +13,7 @@ import Typist from 'react-typist';
 const Placeorder = () => {
 
     const { user } = useAuth();
-    const { displayName, email } = user;
+    const { displayName } = user;
 
 
     const { productId } = useParams();
@@ -23,7 +23,7 @@ const Placeorder = () => {
 
     useEffect(() => {
         async function callApi() {
-            const res = await fetch(`http://localhost:5000/products/${productId}`);
+            const res = await fetch(`https://limitless-everglades-29893.herokuapp.com/products/${productId}`);
             const data = await res.json();
             setProductDetails(data)
             // console.log('serviceDetails', serviceDetails);
@@ -43,7 +43,7 @@ const Placeorder = () => {
         data.status = "Pending";
         console.log("satus", data)
 
-        axios.post('http://localhost:5000/manageOrders', data)
+        axios.post('https://limitless-everglades-29893.herokuapp.com/manageOrders', data)
             .then(res => {
                 // console.log("amar data", res.data);
                 if (res.data.insertedId) {

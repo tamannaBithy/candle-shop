@@ -8,6 +8,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
+    const [admin, setAdmin] = useState(false);
 
 
     const auth = getAuth();
@@ -22,7 +23,8 @@ const useFirebase = () => {
                 const user = result.user;
 
                 // save user to database
-                // saveUser(user.email, user.displayName, 'PUT');
+                saveUser(user.email, user.displayName, 'PUT');
+
 
                 const destination = location?.state?.from || '/home';
                 history.replace(destination);
@@ -45,7 +47,7 @@ const useFirebase = () => {
                 setUser(newUser);
 
                 // save user to database
-                // saveUser(email, name, 'POST');
+                saveUser(email, name, 'POST');
 
 
                 // send name to firebase after creation
@@ -114,10 +116,35 @@ const useFirebase = () => {
     }, [auth])
 
 
+
+    // for save the user in database
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch('https://limitless-everglades-29893.herokuapp.com/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
+    }
+
+
+
+    //    for checking is admin or not
+    useEffect(() => {
+        fetch(`https://limitless-everglades-29893.herokuapp.com/checkAdmin/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user?.email])
+
+
     return {
         user,
         isLoading,
         authError,
+        admin,
         registerUser,
         loginUser,
         signInWithGoogle,

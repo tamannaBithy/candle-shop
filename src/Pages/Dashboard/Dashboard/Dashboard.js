@@ -7,6 +7,7 @@ import {
     useRouteMatch
 } from "react-router-dom";
 import useAuth from '../../../Hooks/useAuth';
+import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 import AddProduct from '../AddProduct/AddProduct';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import ManageOrders from '../ManageOrders/ManageOrders';
@@ -18,8 +19,8 @@ import Review from '../Review/Review';
 const Dashboard = () => {
 
     let { path, url } = useRouteMatch();
-    const { user, logOut } = useAuth();
-
+    const { user, logOut, admin } = useAuth();
+    console.log(admin);
 
     return (
         <Container>
@@ -31,34 +32,39 @@ const Dashboard = () => {
 
                     <h5>Dashboard</h5>
 
-                    <Link to={`${url}`}>
-                        <li className="dashboard-menu mt-5">My Orders</li>
-                    </Link>
+                    {!admin && <div>
+                        <Link to={`${url}`}>
+                            <li className="dashboard-menu mt-5">My Orders</li>
+                        </Link>
 
-                    <Link to={`${url}/pay`}>
-                        <li className="dashboard-menu mt-2">Payment</li>
-                    </Link>
+                        <Link to={`${url}/pay`}>
+                            <li className="dashboard-menu mt-2">Payment</li>
+                        </Link>
 
-                    <Link to={`${url}/review`}>
-                        <li className="dashboard-menu mt-2">Review</li>
-                    </Link>
+                        <Link to={`${url}/review`}>
+                            <li className="dashboard-menu mt-2">Review</li>
+                        </Link>
+                    </div>}
 
 
-                    <Link to={`${url}/manageOrders`}>
-                        <li className="dashboard-menu mt-2">Manage All Orders</li>
-                    </Link>
+                    {admin && <div>
+                        <Link to={`${url}/manageOrders`}>
+                            <li className="dashboard-menu mt-2">Manage All Orders</li>
+                        </Link>
 
-                    <Link to={`${url}/addProducts`}>
-                        <li className="dashboard-menu mt-2">Add A Product</li>
-                    </Link>
+                        <Link to={`${url}/addProducts`}>
+                            <li className="dashboard-menu mt-2">Add A Product</li>
+                        </Link>
 
-                    <Link to={`${url}/makeAdmin`}>
-                        <li className="dashboard-menu mt-2">Make Admin</li>
-                    </Link>
+                        <Link to={`${url}/makeAdmin`}>
+                            <li className="dashboard-menu mt-2">Make Admin</li>
+                        </Link>
 
-                    <Link to={`${url}/manageProducts`}>
-                        <li className="dashboard-menu mt-2">Manage Products</li>
-                    </Link>
+                        <Link to={`${url}/manageProducts`}>
+                            <li className="dashboard-menu mt-2">Manage Products</li>
+                        </Link>
+                    </div>}
+
 
                     {user?.email &&
                         <Button onClick={logOut} className=" mt-2">Logout</Button>
@@ -80,18 +86,18 @@ const Dashboard = () => {
                         <Route exact path={`${path}/review`}>
                             <Review></Review>
                         </Route>
-                        <Route exact path={`${path}/manageOrders`}>
+                        <AdminRoute exact path={`${path}/manageOrders`}>
                             <ManageOrders></ManageOrders>
-                        </Route>
-                        <Route exact path={`${path}/addProducts`}>
+                        </AdminRoute>
+                        <AdminRoute exact path={`${path}/addProducts`}>
                             <AddProduct></AddProduct>
-                        </Route>
-                        <Route exact path={`${path}/makeAdmin`}>
+                        </AdminRoute>
+                        <AdminRoute exact path={`${path}/makeAdmin`}>
                             <MakeAdmin></MakeAdmin>
-                        </Route>
-                        <Route exact path={`${path}/manageProducts`}>
+                        </AdminRoute>
+                        <AdminRoute exact path={`${path}/manageProducts`}>
                             <ManageProducts></ManageProducts>
-                        </Route>
+                        </AdminRoute>
                     </Switch>
 
                 </Col>
