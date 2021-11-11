@@ -46,7 +46,7 @@ const MyOrders = () => {
 
             <Table responsive bordered hover>
                 <thead >
-                    <tr class="table-dark">
+                    <tr className="table-dark">
                         <th>#</th>
                         <th>Title</th>
                         <th>Price</th>
