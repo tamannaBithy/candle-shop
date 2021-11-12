@@ -138,6 +138,9 @@ const useFirebase = () => {
         fetch(`https://limitless-everglades-29893.herokuapp.com/checkAdmin/${user?.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
+            .catch(err => {
+                console.log(err);
+            })
     }, [user?.email])
 
 

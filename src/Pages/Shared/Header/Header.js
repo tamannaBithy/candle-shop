@@ -12,9 +12,9 @@ const Header = () => {
 
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" sticky="top" className="navbar py-4">
+            <Navbar collapseOnSelect expand="lg" sticky="top" className="navbar py-3">
                 <Container>
-                    <Navbar.Brand as={Link} to="/home">
+                    <Navbar.Brand as={Link} to="/home" className="cool-link">
                         Home
                     </Navbar.Brand>
                     <Navbar.Toggle />
@@ -22,9 +22,9 @@ const Header = () => {
 
                         <Nav className="me-auto">
 
-                            <Nav.Link as={Link} to="/explore" className="font-color me-5 ms-5">Explore</Nav.Link>
+                            <Nav.Link as={Link} to="/explore" className="font-color me-5 ms-5 cool-link">Explore</Nav.Link>
 
-                            {user?.email && <Nav.Link as={Link} to="/dashboard" className="font-color">Dashboard</Nav.Link>}
+                            {user?.email && <Nav.Link as={Link} to="/dashboard" className="font-color cool-link">Dashboard</Nav.Link>}
 
                         </Nav>
 

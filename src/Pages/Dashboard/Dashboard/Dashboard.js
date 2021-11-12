@@ -14,7 +14,8 @@ import ManageProducts from '../ManageProducts/ManageProducts';
 import MyOrders from '../MyOrders/MyOrders';
 import Payment from '../Payment/Payment';
 import Review from '../Review/Review';
-import WelcomePage from '../WelcomePage/WelcomePage';
+import './Dashboard.css';
+
 
 const Dashboard = () => {
 
@@ -32,42 +33,44 @@ const Dashboard = () => {
 
                     <h5>Dashboard</h5>
 
-                    <Link to={`${url}`}>
-                        <li className="dashboard-menu mt-5">Welcome Page</li>
-                    </Link>
+                    {
+                        !admin &&
+                        <div>
+                            <Link to={`${url}`}>
+                                <li className="dashboard-menu mt-5">My Orders</li>
+                            </Link>
 
-                    {!admin && <div>
-                        <Link to={`${url}/myOrder`}>
-                            <li className="dashboard-menu mt-5">My Orders</li>
-                        </Link>
+                            <Link to={`${url}/pay`}>
+                                <li className="dashboard-menu mt-2">Payment</li>
+                            </Link>
 
-                        <Link to={`${url}/pay`}>
-                            <li className="dashboard-menu mt-2">Payment</li>
-                        </Link>
-
-                        <Link to={`${url}/review`}>
-                            <li className="dashboard-menu mt-2">Review</li>
-                        </Link>
-                    </div>}
+                            <Link to={`${url}/review`}>
+                                <li className="dashboard-menu mt-2">Review</li>
+                            </Link>
+                        </div>
+                    }
 
 
-                    {admin && <div>
-                        <Link to={`${url}/manageOrders`}>
-                            <li className="dashboard-menu mt-2">Manage All Orders</li>
-                        </Link>
+                    {
+                        admin &&
+                        <div>
+                            <Link to={`${url}`}>
+                                <li className="dashboard-menu mt-2">Manage All Orders</li>
+                            </Link>
 
-                        <Link to={`${url}/addProducts`}>
-                            <li className="dashboard-menu mt-2">Add A Product</li>
-                        </Link>
+                            <Link to={`${url}/addProducts`}>
+                                <li className="dashboard-menu mt-2">Add A Product</li>
+                            </Link>
 
-                        <Link to={`${url}/makeAdmin`}>
-                            <li className="dashboard-menu mt-2">Make Admin</li>
-                        </Link>
+                            <Link to={`${url}/makeAdmin`}>
+                                <li className="dashboard-menu mt-2">Make Admin</li>
+                            </Link>
 
-                        <Link to={`${url}/manageProducts`}>
-                            <li className="dashboard-menu mt-2">Manage Products</li>
-                        </Link>
-                    </div>}
+                            <Link to={`${url}/manageProducts`}>
+                                <li className="dashboard-menu mt-2">Manage Products</li>
+                            </Link>
+                        </div>
+                    }
 
 
                     {user?.email &&
@@ -82,32 +85,44 @@ const Dashboard = () => {
 
                     <Switch>
 
+                        {
+                            admin &&
+                            <div>
+                                <Route exact path={path}>
+                                    <ManageOrders></ManageOrders>
+                                </Route>
+                                <Route path={`${path}/addProducts`}>
+                                    <AddProduct></AddProduct>
+                                </Route>
+                                <Route path={`${path}/makeAdmin`}>
+                                    <MakeAdmin></MakeAdmin>
+                                </Route>
+                                <Route path={`${path}/manageProducts`}>
+                                    <ManageProducts></ManageProducts>
+                                </Route>
 
-                        <Route exact path={path}>
-                            <WelcomePage></WelcomePage>
-                        </Route>
+                            </div>
+                        }
 
-                        <Route exact path={`${path}/myOrder`}>
-                            <MyOrders></MyOrders>
-                        </Route>
-                        <Route exact path={`${path}/pay`}>
-                            <Payment></Payment>
-                        </Route>
-                        <Route exact path={`${path}/review`}>
-                            <Review></Review>
-                        </Route>
-                        <Route exact path={`${path}/manageOrders`}>
-                            <ManageOrders></ManageOrders>
-                        </Route>
-                        <Route exact path={`${path}/addProducts`}>
-                            <AddProduct></AddProduct>
-                        </Route>
-                        <Route exact path={`${path}/makeAdmin`}>
-                            <MakeAdmin></MakeAdmin>
-                        </Route>
-                        <Route exact path={`${path}/manageProducts`}>
-                            <ManageProducts></ManageProducts>
-                        </Route>
+
+                        {
+                            !admin &&
+                            <div>
+
+                                <Route exact path={`${path}`}>
+                                    <MyOrders></MyOrders>
+                                </Route>
+                                <Route path={`${path}/pay`}>
+                                    <Payment></Payment>
+                                </Route>
+                                <Route path={`${path}/review`}>
+                                    <Review></Review>
+                                </Route>
+                            </div>
+                        }
+
+
+
                     </Switch>
 
                 </Col>

@@ -76,9 +76,6 @@ const Login = () => {
                 </form>
 
 
-                {isLoading && <Spinner className="mt-4" animation="border" />}
-
-
                 {authError && <Alert className="w-50 mt-4 mx-auto" variant="danger">
                     {authError}
                 </Alert>}
@@ -87,6 +84,9 @@ const Login = () => {
                 <br />
                 <br />
                 <GoogleButton className="mx-auto" onClick={handleGoogleLogin} />
+
+
+                {isLoading && <Spinner className="mt-4" animation="border" />}
 
 
                 <input type="checkbox" id="terms" className="mt-4 me-1" />

@@ -33,7 +33,6 @@ const Register = () => {
                     className="input-field"
                     name="name"
                     placeholder="Your Name"
-                    // onBlur={handleOnBlur}
                     {...register("name", { required: true })}
                 />
                 <br />
@@ -42,7 +41,7 @@ const Register = () => {
                     name="email"
                     placeholder="Your Email"
                     type="email"
-                    // onBlur={handleOnBlur}
+
                     {...register("email", { required: true })}
                 />
                 <br />
@@ -51,7 +50,7 @@ const Register = () => {
                     name="password"
                     type="password"
                     placeholder="Password"
-                    // onBlur={handleOnBlur}
+
                     {...register("password", { required: true })}
                 />
                 <br />
@@ -60,7 +59,7 @@ const Register = () => {
                     name="password2"
                     type="password"
                     placeholder="Confirm Password"
-                    // onBlur={handleOnBlur}
+
                     {...register("password2", { required: true })}
                 />
                 <br />
