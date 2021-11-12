@@ -12,7 +12,7 @@ import GoogleButton from 'react-google-button';
 const Login = () => {
 
 
-    const { user, loginUser, isLoading, authError, signInWithGoogle } = useAuth();
+    const { loginUser, isLoading, authError, signInWithGoogle } = useAuth();
     const { register, handleSubmit } = useForm();
 
 
@@ -38,7 +38,7 @@ const Login = () => {
 
         <Container>
             <div className="login">
-                <h4 className="fw-bold pb-5">At First <span className="fs-2 mx-2">Login</span> to Our Site!</h4>
+                <h3 className="fw-bold pb-5 font-monospace"> Login to Our Site Now!</h3>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <input
@@ -60,36 +60,34 @@ const Login = () => {
                     />
                     <br />
 
+
                     <input
-                        className="submit-btn btn btn-danger mt-3"
+                        className=" btn btn-primary mt-3"
                         type="submit"
                         value="Login"
                     />
+
+                    <NavLink
+                        style={{ textDecoration: 'none' }}
+                        to="/register">
+                        <button class="btn btn-light mt-4 ms-3">New User? Please Register</button>
+                    </NavLink>
+
                 </form>
 
-                <NavLink
-                    style={{ textDecoration: 'none' }}
-                    to="/register">
-                    <button>New User? Please Register</button>
-                </NavLink>
 
-                {isLoading && <Spinner animation="border" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                </Spinner>}
+                {isLoading && <Spinner className="mt-4" animation="border" />}
 
-                {user?.email && <Alert variant="success">
-                    login successfully!
-                </Alert>}
-                {authError && <Alert variant="danger">
+
+                {authError && <Alert className="w-50 mt-4 mx-auto" variant="danger">
                     {authError}
                 </Alert>}
 
 
                 <br />
                 <br />
-                <GoogleButton onClick={handleGoogleLogin} />
-                <br />
-                <br />
+                <GoogleButton className="mx-auto" onClick={handleGoogleLogin} />
+
 
                 <input type="checkbox" id="terms" className="mt-4 me-1" />
                 <label htmlFor="terms" className="text-muted"> Agree with the terms & condition of our site. We won't use your information with others.</label>

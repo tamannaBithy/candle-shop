@@ -7,3 +7,14 @@
     font-size: larger;
     font-weight: 450;
 }
+
+.login-btn{
+    border: 1px solid black;
+    border-radius: 4px;
+    color: black !important;
+}
+
+.login-btn:hover{
+    background-color: black;
+    color: white !important;
+}

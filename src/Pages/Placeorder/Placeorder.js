@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { Container, Card, Col, Row } from 'react-bootstrap';
+import { Container, Card, Col, Row, Toast } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 import useAuth from '../../Hooks/useAuth';
-
-// import './Placeorder.css';
+import './Placeorder.css';
 import Fade from 'react-reveal/Fade';
 import Typist from 'react-typist';
 import Swal from 'sweetalert2';
 
+
 const Placeorder = () => {
 
     const { user } = useAuth();
-    const { displayName } = user;
+    const { displayName, email } = user;
 
 
     const { productId } = useParams();
@@ -68,16 +68,19 @@ const Placeorder = () => {
 
 
 
+
+
+
     return (
-        <Container className="mt-5">
-            <h2 className="py-3"><Typist cursor={{
+        <Container className="mt-5 pb-5">
+            <h2 className="pt-2 pb-5 letter-spacing fw-bold text-uppercase"><Typist cursor={{
                 show: false,
                 blink: true,
                 element: '|',
                 hideWhenDone: false,
                 hideWhenDoneDelay: 1000,
             }}>
-                Place Your Order Today...
+                Have the fragrance of candle...
             </Typist></h2>
 
 
@@ -92,43 +95,70 @@ const Placeorder = () => {
                             {productDetails?.title && <input
                                 {...register("title")}
                                 defaultValue={productDetails?.title}
-                                className="p-2 m-2 w-100 input-field"
+                                className="p-2 m-2 w-75 input-field"
                             />
                             }
 
                             {displayName && <input
                                 {...register("name")}
                                 defaultValue={displayName}
+                                className="p-2 m-2 w-75 input-field"
+                            />}
 
-                                className="p-2 m-2 w-100 input-field"
+                            {email && <input
+                                {...register("email")}
+                                defaultValue={email}
+                                className="p-2 m-2 w-75 input-field"
                             />}
 
                             {productDetails?.image && <input
                                 {...register("image")}
                                 defaultValue={productDetails?.image}
-                                className="p-2 m-2 w-100 input-field"
+                                className="p-2 m-2 w-75 input-field"
                             />}
 
-                            {productDetails?.price && <input
-                                {...register("price")}
-                                defaultValue={productDetails?.price}
+                            <input
+                                {...register("phoneNumber", { required: true })}
+                                placeholder="Enter phone number"
                                 type="number"
-                                className="p-2 m-2 w-100 input-field"
-                            />}
+                                className="p-2 m-2 w-75 input-field"
+                            />
 
-                            <select {...register("model")} className="p-2 m-2 w-100">
+                            {errors.phoneNumber && <Toast>
+                                <Toast.Body>
+                                    This field is required
+                                </Toast.Body>
+                            </Toast>}
+
+
+                            <input
+                                {...register("address", { required: true })}
+                                placeholder="Your address"
+                                className="p-2 m-2 w-75 input-field"
+                            />
+
+                            {errors.address && <Toast>
+                                <Toast.Body>
+                                    This field is required
+                                </Toast.Body>
+                            </Toast>}
+
+
+
+
+                            <select {...register("model")} className="p-2 m-4 w-75">
                                 <option value="premium">premium</option>
                                 <option value="classic">classic</option>
                                 <option value="business">business</option>
                             </select>
                             <br />
 
-                            {errors.exampleRequired && <span>This field is required</span>}
+
 
                             <input
                                 type="submit"
-                                value="Order now"
-                                className="btn btn-info w-50"
+                                value="Order Now"
+                                className="btn btn-info w-25 mt-4"
                             />
                         </form>
                     </Fade>
@@ -142,8 +172,8 @@ const Placeorder = () => {
                             <Card.Img className="placeorder-img" variant="top" src={image} />
                             <Card.Body>
                                 <Card.Title>{title}</Card.Title>
-                                <Card.Text>
-                                    <div className="text-muted">{details}</div>
+                                <Card.Text className="text-muted">
+                                    {details}
                                 </Card.Text>
                             </Card.Body>
                         </Card>

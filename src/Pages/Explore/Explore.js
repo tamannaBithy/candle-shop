@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
-// import Rating from 'react-rating';
+import { Card, Col, Container, Dropdown, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Fade from 'react-reveal/Fade';
+import Rating from 'react-rating';
+import './Explore.css';
 
 
 const Explore = () => {
@@ -15,7 +16,21 @@ const Explore = () => {
     }, [])
 
     return (
-        <Container>
+        <Container className="mt-5">
+            <h2 className="pt-3 letter-spacing fw-bold ">EXPLORE ALL OF OUR PRODUCTS TODAY</h2>
+
+            <Dropdown className="my-5 d-flex justify-content-end me-5 pe-5">
+                <Dropdown.Toggle variant="outline-dark" id="dropdown-basic">
+                    Select Your Candle
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                    <Dropdown.Item href="#/action-1">Aroma</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">Diffiuser</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">Flower</Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>
+
             <Row xs={1} md={3} className="g-5 mb-5 pb-5 container">
 
                 {
@@ -31,15 +46,14 @@ const Explore = () => {
                                     </Card.Title>
 
                                     <Card.Text>
-                                        {/* <Rating
-                            initialRating={pd.review}
-                            readonly
-                            emptySymbol="far fa-circle"
-                            fullSymbol="fas fa-circle">
-                        </Rating>
-                        <span className="ms-4">{pd.review} review</span> */}
+                                        <Rating
+                                            initialRating={pd.review}
+                                            readonly
+                                            emptySymbol="far fa-star"
+                                            fullSymbol="fas fa-star">
+                                        </Rating>
 
-                                        {pd.details.slice(0, 212)}
+                                        <q className="d-block my-2 text-muted"> {pd.details.slice(0, 212)}</q>
                                         <h6>${pd.price}</h6>
                                     </Card.Text>
                                 </Card.Body>

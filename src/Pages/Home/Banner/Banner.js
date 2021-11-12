@@ -14,7 +14,7 @@ const Banner = () => {
             <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src={banner1} class="  banner-img " alt="..." />
+                        <img src={banner1} class="banner-img" alt="..." />
                         <div class="carousel-caption banner-txt">
                             <Fade top>
                                 <h4 className="py-4 font-monospace">Candle & Diffusers</h4>

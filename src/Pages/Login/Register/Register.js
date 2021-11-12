@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 const Register = () => {
 
     const history = useHistory();
-    const { user, registerUser, isLoading, authError } = useAuth();
+    const { registerUser, isLoading, authError } = useAuth();
     const { register, handleSubmit } = useForm();
 
 
@@ -23,7 +23,11 @@ const Register = () => {
     };
 
     return (
-        <Container>
+        <Container className="my-5 pb-5">
+
+            <h3 className="fw-bold pb-5 font-monospace">  Register A Account Today!</h3>
+
+
             {!isLoading && <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                     className="input-field"
@@ -55,35 +59,34 @@ const Register = () => {
                     className="input-field"
                     name="password2"
                     type="password"
-                    placeholder="Retype Password"
+                    placeholder="Confirm Password"
                     // onBlur={handleOnBlur}
                     {...register("password2", { required: true })}
                 />
                 <br />
 
                 <input
-                    className="submit-btn btn btn-danger mt-3"
+                    className="btn btn-primary mt-4"
                     type="submit"
                     value="Register"
                 />
+
+                <NavLink
+                    style={{ textDecoration: 'none' }}
+                    to="/login">
+                    <button class="btn btn-light mt-4 ms-3">Already Registered? Please Login</button>
+                </NavLink>
             </form>}
 
-            <NavLink
-                style={{ textDecoration: 'none' }}
-                to="/login">
-                <button>Already Registered? Please Login</button>
-            </NavLink>
 
-            {isLoading && <Spinner animation="border" role="status">
-                <span className="visually-hidden">Loading...</span>
-            </Spinner>}
 
-            {user?.email && <Alert variant="success">
-                login successfully!
-            </Alert>}
-            {authError && <Alert variant="danger">
+            {isLoading && <Spinner className="mt-5" animation="border" />}
+
+
+            {authError && <Alert className="w-50 mt-4 mx-auto" variant="danger">
                 {authError}
             </Alert>}
+
         </Container>
     );
 };
