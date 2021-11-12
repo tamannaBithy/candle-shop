@@ -12,31 +12,36 @@ const Header = () => {
 
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" sticky="top" className="navbar shadow-sm">
+            <Navbar collapseOnSelect expand="lg" sticky="top" className="navbar py-4">
                 <Container>
                     <Navbar.Brand as={Link} to="/home">
-                        {/* <img src={} alt="" /> */}
+                        Home
                     </Navbar.Brand>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
 
-                        <Nav.Link as={Link} to="/explore" className="font-color position-relative me-2"><i className="fas fa-shopping-cart me-2"></i>Explore
+                        <Nav className="me-auto">
 
-                        </Nav.Link>
+                            <Nav.Link as={Link} to="/explore" className="font-color me-5 ms-5">Explore</Nav.Link>
 
-                        {user?.email && <Nav.Link as={Link} to="/dashboard" className="font-color position-relative me-2"><i className="fas fa-tasks me-2"></i>Dashboard
+                            {user?.email && <Nav.Link as={Link} to="/dashboard" className="font-color">Dashboard</Nav.Link>}
 
-                        </Nav.Link>}
+                        </Nav>
 
-                        <Nav.Link as={Link} to="/addService" className="font-color"><i className="fas fa-plus-circle me-2"></i>Add a service</Nav.Link>
 
-                        {user?.email ?
-                            <Button onClick={logOut} className="login-btn">Logout</Button> :
-                            <Nav.Link as={Link} to="/login" className="login-btn">Login</Nav.Link>}
+                        <Nav>
+                            <Nav.Link as={Link} to="/home" className="font-color me-4"><i className="far fa-heart me-1"></i>( 0 )</Nav.Link>
+                            <Nav.Link as={Link} to="/home" className="font-color me-4"><i class="fas fa-shopping-bag me-1"></i>( 0 )</Nav.Link>
 
-                        <Navbar.Text className="userName">
-                            <a href="#login" >{user?.displayName}</a>
-                        </Navbar.Text>
+                            {user?.email ?
+                                <Button onClick={logOut} variant="outline-dark" className="me-4 ">Logout</Button> :
+                                <Nav.Link as={Link} to="/login" variant="outline-dark" className="me-4 ">Login</Nav.Link>}
+
+                            <Navbar.Text className="userName">
+                                <a href="#login" >{user?.displayName}</a>
+                            </Navbar.Text>
+
+                        </Nav>
 
                     </Navbar.Collapse>
                 </Container>

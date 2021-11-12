@@ -37,19 +37,6 @@ function App() {
                 <Explore />
               </Route>
 
-
-              {/* <PrivateRoute path="/addService">
-                <AddService></AddService>
-              </PrivateRoute>
-
-              <PrivateRoute path="/order">
-                <MyOrder></MyOrder>
-              </PrivateRoute>
-
-              <PrivateRoute path="/manage">
-                <ManageOrder></ManageOrder>
-              </PrivateRoute> */}
-
               <PrivateRoute path="/placeOrder/:productId">
                 <Placeorder></Placeorder>
               </PrivateRoute>

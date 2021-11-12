@@ -4,20 +4,6 @@
 
 .font-color, .userName{
     color: black !important;
-    font-size: medium;
-    font-weight: bold;
-}
-
-.login-btn{
-    color: white !important;
-    background-color: black;
-    padding: 7px 15px;
-    border-radius: 20px;
-    margin-right: 10px;
-}
-
-.font-color:hover{
-    background-color: rgb(235, 235, 235);
-    padding: 10px;
-    border-radius: 20px;
+    font-size: larger;
+    font-weight: 450;
 }

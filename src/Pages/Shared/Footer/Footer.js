@@ -3,43 +3,103 @@ import './Footer.css'
 
 const Footer = () => {
     return (
-        <div className="container-fluid justify-content-center text-light ">
-            <footer>
-                <div className="row my-5 justify-content-center pb-5 pt-2">
-                    <div className="col-11">
-                        <div className="row ">
-                            <div className="col-xl-8 col-md-4 col-sm-4 col-12 my-auto mx-auto a">
-                                <h3 className="text-muted mb-md-0 mb-5 bold-text">Tripadvisor: Read Reviews, <br /> Compare Prices & Save Your Money!</h3>
+        <div className="container-fluid justify-content-center text-light mt-5 pt-5">
+
+
+            <section class="deneb_cta">
+                <div class="container">
+                    <div class="cta_wrapper">
+                        <div class="row align-items-center">
+                            <div class="col-lg-7">
+                                <div class="cta_content">
+                                    <h3>Have Any Idea in Your Mind ?</h3>
+                                    <p>We Supply You With Fully Automated Production Systems For The Mass Production Of Candles for all kinds of candles.</p>
+                                </div>
                             </div>
-                            <div className="col-xl-2 col-md-4 col-sm-4 col-12">
-                                <h6 className="mb-3 mb-lg-4 bold-text "><b>MENU</b></h6>
-                                <ul className="list-unstyled">
-                                    <li>Home</li>
-                                    <li>About</li>
-                                    <li>Blog</li>
-                                    <li>Portfolio</li>
-                                </ul>
-                            </div>
-                            <div className="col-xl-2 col-md-4 col-sm-4 col-12">
-                                <h6 className="mb-3 mb-lg-4 text-muted bold-text mt-sm-0 mt-5"><b>ADDRESS</b></h6>
-                                <p className="mb-1">605, RATAN ICON BUILDING</p>
-                                <p>SEAWOODS SECTOR</p>
+                            <div class="col-lg-5">
+                                <div class="button_box">
+                                    <a href="#" class="btn btn-warning">Contact Us Today</a>
+                                </div>
                             </div>
                         </div>
-                        <div className="row ">
-                            <div className="col-xl-8 col-md-4 col-sm-4 col-auto my-md-0 mt-5 order-sm-1 order-3 align-self-end">
-                                <p className="social text-muted mb-0 pb-0 bold-text">
-                                    <span className="mx-2"><i className="fab fa-facebook-square"></i></span>
-                                    <span className="mx-2"><i className="fa fa-linkedin-square" ></i></span>
-                                    <span className="mx-2"><i className="fa fa-twitter"></i></span>
-                                    <span className="mx-2"><i className="fa fa-instagram" ></i></span>
-                                </p><small className="rights"> <span>&#169;</span>All Rights Reserved Tamanna bithy</small>
+                    </div>
+                </div>
+            </section>
+            <footer class="deneb_footer">
+                <div class="widget_wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-12">
+                                <div class="widget widegt_about">
+                                    <div class="widget_title">
+                                        <img src="assets/images/logo_1.png" class="img-fluid" alt="" />
+                                    </div>
+                                    <p className="widget_description my-5"> <span className="fw-bold fs-3">ASKKA</span> <br /> is a homemade candle shop. combination of fragrance, flower & love. you will find a artistic vibe here always. so, keep in touch with us. <br /> Thank You.</p>
+                                    <ul class="social">
+                                        <li><a href="#.."><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#.."><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#.."><i class="fab fa-instagram"></i></a></li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div className="col-xl-2 col-md-4 col-sm-4 col-auto order-1 align-self-end ">
-                                <h6 className="mt-55 mt-2 text-muted bold-text"><b>Tamanna Bithy</b></h6><small> <span><i className="fa fa-envelope" aria-hidden="true"></i></span> tamanna14@gmail.com</small>
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="widget widget_link">
+                                    <div class="widget_title">
+                                        <h4>Links</h4>
+                                    </div>
+                                    <ul>
+                                        <li><a className="text-dec" href="#..">About Us</a></li>
+                                        <li><a className="text-dec" href="#..">Services</a></li>
+                                        <li><a className="text-dec" href="#..">Portfolio</a></li>
+                                        <li><a className="text-dec" href="#..">Blog</a></li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div className="col-xl-2 col-md-4 col-sm-4 col-auto order-2 align-self-end mt-3 ">
-                                <h6 className="text-muted bold-text"><b>RISHABH SHEKHAR</b></h6><small><span><i className="fa fa-envelope" aria-hidden="true"></i></span> rishab@gmail.com</small>
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="widget widget_contact">
+                                    <div class="widget_title">
+                                        <h4>Contact Us</h4>
+                                    </div>
+                                    <div class="contact_info">
+                                        <div class="single_info">
+                                            <div class="icon">
+                                                <i class="fas fa-phone-alt"></i>
+                                            </div>
+                                            <div class="info">
+                                                <p><a className="text-dec" href="tel:+919246147999">1800-121-3637</a></p>
+                                                <p><a className="text-dec" href="tel:+919246147999">+91 924-614-7999</a></p>
+                                            </div>
+                                        </div>
+                                        <div class="single_info">
+                                            <div class="icon">
+                                                <i class="fas fa-envelope"></i>
+                                            </div>
+                                            <div class="info">
+                                                <p><a className="text-dec" href="mailto:info@deneb.com">info@deneb.com</a></p>
+                                                <p><a className="text-dec" href="mailto:services@deneb.com">services@deneb.com</a></p>
+                                            </div>
+                                        </div>
+                                        <div class="single_info">
+                                            <div class="icon">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                            </div>
+                                            <div class="last-info">
+                                                <p>125, Park street aven, Brocklyn,Newyork.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright_area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="copyright_text">
+                                    <p><small>&copy; All rights reserved to Tamanna Bithy, 2021.</small></p>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -85,9 +85,6 @@ const OrderStatus = ({ pd, index }) => {
     };
 
 
-
-
-
     return (
 
 
