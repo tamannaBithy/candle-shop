@@ -51,7 +51,7 @@ const Placeorder = () => {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        title: 'Your work has been saved',
+                        title: 'Your order placed successfully',
                         showConfirmButton: false,
                         timer: 1500
                     })

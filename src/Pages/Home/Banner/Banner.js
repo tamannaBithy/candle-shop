@@ -11,11 +11,11 @@ const Banner = () => {
     return (
         <Container className="my-5">
 
-            <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src={banner1} class="banner-img" alt="..." />
-                        <div class="carousel-caption banner-txt">
+            <div id="carouselExampleSlidesOnly" className="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div className="carousel-inner">
+                    <div className="carousel-item active">
+                        <img src={banner1} className="banner-img" alt="..." />
+                        <div className="carousel-caption banner-txt">
                             <Fade top>
                                 <h4 className="py-4 font-monospace">Candle & Diffusers</h4>
                                 <h1 className="pb-4 fw-bold header-txt font-monospace">Orginal Design</h1>
@@ -25,9 +25,9 @@ const Banner = () => {
 
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <img src={banner2} class="banner-img" alt="..." />
-                        <div class="carousel-caption banner-txt">
+                    <div className="carousel-item">
+                        <img src={banner2} className="banner-img" alt="..." />
+                        <div className="carousel-caption banner-txt">
                             <Fade top>
                                 <h4 className="py-4 font-monospace">Candle & Diffusers</h4>
                                 <h1 className="pb-4 fw-bold header-txt font-monospace">Handmade Candles</h1>
@@ -36,9 +36,9 @@ const Banner = () => {
                             </Fade>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <img src={banner3} class="banner-img" alt="..." />
-                        <div class="carousel-caption banner-txt">
+                    <div className="carousel-item">
+                        <img src={banner3} className="banner-img" alt="..." />
+                        <div className="carousel-caption banner-txt">
                             <Fade top>
                                 <h4 className="py-4 font-monospace">Candle & Diffusers</h4>
                                 <h1 className="pb-4 fw-bold header-txt font-monospace">Made With Love</h1>

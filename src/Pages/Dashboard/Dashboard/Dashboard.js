@@ -24,12 +24,11 @@ const Dashboard = () => {
     console.log(admin);
 
     return (
-        <Container>
+        <Container className="my-5 pb-5">
 
+            <Row xs={1} md={2} className=" my-5 py-5">
 
-            <Row className=" mt-4">
-
-                <Col xs={2} md={3} >
+                <Col xs={12} md={2}>
 
                     <h5>Dashboard</h5>
 
@@ -37,15 +36,15 @@ const Dashboard = () => {
                         !admin &&
                         <div>
                             <Link to={`${url}`}>
-                                <li className="dashboard-menu mt-5">My Orders</li>
+                                <li className="dashboard-menu mt-5 cool-link mb-2 "> <i class="fas fa-table me-3"></i>My Orders</li>
                             </Link>
 
-                            <Link to={`${url}/pay`}>
-                                <li className="dashboard-menu mt-2">Payment</li>
+                            <Link to={`${url}/pay`} className="dash-link">
+                                <li className="dashboard-menu mt-3 cool-link mb-2 me-3"><i class="fab fa-cc-amazon-pay me-3"></i>Payment</li>
                             </Link>
 
-                            <Link to={`${url}/review`}>
-                                <li className="dashboard-menu mt-2">Review</li>
+                            <Link to={`${url}/review`} className="dash-link">
+                                <li className="dashboard-menu mt-3 cool-link mb-2 me-3"><i class="fas fa-feather-alt me-4"></i>Review</li>
                             </Link>
                         </div>
                     }
@@ -55,33 +54,33 @@ const Dashboard = () => {
                         admin &&
                         <div>
                             <Link to={`${url}`}>
-                                <li className="dashboard-menu mt-2">Manage All Orders</li>
+                                <li className="dashboard-menu mt-5 cool-link mb-2"> <i class="fas fa-table me-1"></i> Manage All Orders</li>
                             </Link>
 
-                            <Link to={`${url}/addProducts`}>
-                                <li className="dashboard-menu mt-2">Add A Product</li>
+                            <Link to={`${url}/addProducts`} className="dash-link">
+                                <li className="dashboard-menu mt-3 cool-link mb-2 me-4"> <i class="fas fa-folder-plus me-3"></i>Add A Product</li>
                             </Link>
 
-                            <Link to={`${url}/makeAdmin`}>
-                                <li className="dashboard-menu mt-2">Make Admin</li>
+                            <Link to={`${url}/makeAdmin`} className="dash-link">
+                                <li className="dashboard-menu mt-2 mt-3 cool-link mb-2 me-4"> <i class="fas fa-user-cog me-4"></i>Make Admin</li>
                             </Link>
 
-                            <Link to={`${url}/manageProducts`}>
-                                <li className="dashboard-menu mt-2">Manage Products</li>
+                            <Link to={`${url}/manageProducts`} className="dash-link">
+                                <li className="dashboard-menu mt-2 mt-3 cool-link mb-2"> <i class="fas fa-tasks me-3"></i>Manage Products</li>
                             </Link>
                         </div>
                     }
 
 
                     {user?.email &&
-                        <Button onClick={logOut} className=" mt-2">Logout</Button>
+                        <Button variant="outline-dark" onClick={logOut} className=" my-5 me-2">Logout</Button>
                     }
 
                 </Col>
 
 
 
-                <Col xs={10} md={9}>
+                <Col xs={12} md={10} className="dashboard-bg pb-5">
 
                     <Switch>
 

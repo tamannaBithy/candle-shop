@@ -73,7 +73,7 @@ const Register = () => {
                 <NavLink
                     style={{ textDecoration: 'none' }}
                     to="/login">
-                    <button class="btn btn-light mt-4 ms-3">Already Registered? Please Login</button>
+                    <button className="btn btn-light mt-4 ms-3">Already Registered? Please Login</button>
                 </NavLink>
             </form>}
 

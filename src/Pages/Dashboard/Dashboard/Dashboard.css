@@ -1,0 +1,17 @@
+.dashboard-bg{
+    background-color: #FCFAFB;
+}
+
+.dashboard-menu{
+    font-size: 20px;
+    color: black;
+}
+
+
+/* make responsive */
+@media only screen and (max-width: 900px) {
+    .dash-link{
+        display: block;
+        text-decoration: none !important;
+    }
+}

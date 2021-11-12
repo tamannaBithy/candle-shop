@@ -35,7 +35,10 @@ const Products = () => {
                             <Card className="card-height service-card">
 
                                 <Row xs={1} md={2}>
-                                    <Col><Card.Img variant="top" className="service-img" src={pd.image} /></Col>
+                                    <Col className="hover01">
+                                        <figure> <Card.Img variant="top" className="service-img" src={pd.image} /></figure>
+
+                                    </Col>
 
                                     <Col>
                                         <Card.Body className="mt-5">

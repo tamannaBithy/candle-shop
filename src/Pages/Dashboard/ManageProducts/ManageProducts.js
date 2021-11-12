@@ -41,7 +41,7 @@ const ManageProducts = () => {
 
                             Swal.fire(
                                 'Deleted!',
-                                'Your file has been deleted.',
+                                'This product has been deleted.',
                                 'success'
                             )
 

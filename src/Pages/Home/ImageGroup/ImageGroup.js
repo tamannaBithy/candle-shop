@@ -84,15 +84,15 @@ const ImageGroup = () => {
 
 
                     <div className="d-flex justify-content-start gap-3 mt-5 ps-2">
-                        <div><i class="fas fa-info-circle text-muted"></i></div>
+                        <div><i className="fas fa-info-circle text-muted"></i></div>
                         <p className="text-muted fst-italic">To contain the melted wax, making the candle more efficient, avoiding mess, and producing a more even burn.</p>
                     </div>
                     <div className="d-flex justify-content-start gap-3 mt-3 ps-2">
-                        <div><i class="fas fa-info-circle text-muted"></i></div>
+                        <div><i className="fas fa-info-circle text-muted"></i></div>
                         <p className="text-muted fst-italic">As a decoration, either due to the ornate nature of the device, or (in the case of a glass follower) through light dispersion or colouration.</p>
                     </div>
                     <div className="d-flex justify-content-start gap-3 mt-3 ps-2">
-                        <div><i class="fas fa-info-circle text-muted"></i></div>
+                        <div><i className="fas fa-info-circle text-muted"></i></div>
                         <p className="text-muted fst-italic">If necessary, to shield the flame from wind.</p>
                     </div>
 

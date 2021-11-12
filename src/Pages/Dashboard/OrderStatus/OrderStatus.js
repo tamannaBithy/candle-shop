@@ -36,7 +36,7 @@ const OrderStatus = ({ pd, index }) => {
 
                             Swal.fire(
                                 'Deleted!',
-                                'Your file has been deleted.',
+                                'This order has been deleted.',
                                 'success'
                             )
 
@@ -76,7 +76,7 @@ const OrderStatus = ({ pd, index }) => {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        title: 'Your work has been saved',
+                        title: 'Order status have been updated',
                         showConfirmButton: false,
                         timer: 1500
                     })
@@ -95,7 +95,9 @@ const OrderStatus = ({ pd, index }) => {
             <td>{pd.email}</td>
             <td>
                 <form onSubmit={handleSubmit(onSubmit)}>
+
                     <select
+                        class="btn btn-outline-dark btn-sm"
                         onClick={() => handleOrderId(pd?._id)}
                         {...register("status")}
                     >
@@ -103,12 +105,14 @@ const OrderStatus = ({ pd, index }) => {
                         <option value="Shipped">Shipped</option>
                         <option value="Delivered">Delivered</option>
                     </select>
-                    <input type="submit" value="update" />
+                    <input type="submit" class="btn btn-outline-dark btn-sm ms-2" value="Update" />
+
                 </form>
 
 
             </td>
-            <td><button onClick={() => handleDeleteProduct(pd._id)} className="btn btn-danger m-2">Delete</button></td>
+            <td><i onClick={() => handleDeleteProduct(pd._id)} class="fas fa-trash-alt"></i></td>
+
         </tr>
 
 

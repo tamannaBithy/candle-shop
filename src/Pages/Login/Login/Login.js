@@ -70,7 +70,7 @@ const Login = () => {
                     <NavLink
                         style={{ textDecoration: 'none' }}
                         to="/register">
-                        <button class="btn btn-light mt-4 ms-3">New User? Please Register</button>
+                        <button className="btn btn-light mt-4 ms-3">New User? Please Register</button>
                     </NavLink>
 
                 </form>
@@ -80,13 +80,13 @@ const Login = () => {
                     {authError}
                 </Alert>}
 
+                {isLoading && <Spinner className="mt-4" animation="border" />}
+
 
                 <br />
                 <br />
                 <GoogleButton className="mx-auto" onClick={handleGoogleLogin} />
 
-
-                {isLoading && <Spinner className="mt-4" animation="border" />}
 
 
                 <input type="checkbox" id="terms" className="mt-4 me-1" />
