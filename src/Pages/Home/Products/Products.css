@@ -13,7 +13,7 @@
 
 
 /* for zoom in image */
-.hover01 figure .service-img {
+/* .hover01 figure .service-img {
 	-webkit-transform: scale(1);
 	transform: scale(1);
 	-webkit-transition: .3s ease-in-out;
@@ -22,4 +22,42 @@
 .hover01 figure:hover .service-img {
 	-webkit-transform: scale(1.1);
 	transform: scale(1.1);
-}
+} */
+
+
+.img-effect {
+	position: relative;
+	width: 50%;
+  }
+  
+  .service-img {
+	display: block;
+	transition: .5s ease;
+	backface-visibility: hidden;
+  }
+  
+  .middle {
+	transition: .5s ease;
+	opacity: 0;
+	position: absolute;
+	top: 90%;
+	left: 30%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	text-align: center;
+  }
+  
+  .img-effect:hover .service-img {
+	opacity: 0.5;
+  }
+  
+  .img-effect:hover .middle {
+	opacity: 1;
+  }
+  
+  .text {
+	
+	color: rgb(0, 0, 0);
+	font-size: 16px;
+	padding: 16px 32px;
+  }
