@@ -18,16 +18,29 @@ const Review = () => {
             .then(res => {
                 // console.log("amar data", res.data);
                 if (res.data.insertedId) {
+
+                    let timerInterval
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        title: 'Thanks for your review',
-                        showConfirmButton: false,
-                        timer: 1500
+                        title: 'Thanks for your feedback!',
+                        timer: 5000,
+                        timerProgressBar: true,
+                        didOpen: () => {
+                            Swal.showLoading()
+                        },
+                        willClose: () => {
+                            clearInterval(timerInterval)
+                        }
+                    }).then((result) => {
+                        /* Read more about handling dismissals below */
+                        if (result.dismiss === Swal.DismissReason.timer) {
+                            console.log('I was closed by the timer')
+                        }
                     })
-                    reset();
-
                 }
+
+                reset();
             })
             .catch(function (error) {
                 console.log(error);

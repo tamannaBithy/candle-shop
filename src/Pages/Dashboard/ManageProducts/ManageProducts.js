@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Card, Col, Container, Row, Spinner } from 'react-bootstrap';
 import Zoom from 'react-reveal/Zoom';
 import Swal from 'sweetalert2';
+import useAuth from '../../../Hooks/useAuth';
 
 
 
@@ -9,6 +10,8 @@ const ManageProducts = () => {
 
     const [products, setProducts] = useState([]);
     const [isDelete, setIsDelete] = useState(null);
+    const { isLoading } = useAuth();
+
 
     useEffect(() => {
         fetch('https://limitless-everglades-29893.herokuapp.com/products')
@@ -67,36 +70,38 @@ const ManageProducts = () => {
 
             <hr className="w-75 mb-3 mx-auto" />
 
-            <Row xs={1} md={3} className="g-5 mb-5 pb-5 container">
+            {isLoading ? <Spinner animation="border" />
+                :
+                <Row xs={1} md={3} className="g-5 mb-5 pb-5 container">
 
-                {
-                    products.map((pd) => <Col key={pd._id}>
+                    {
+                        products.map((pd) => <Col key={pd._id}>
 
-                        <Zoom>
-                            <Card className="card-height service-card">
-                                <Card.Img variant="top" className="service-img" src={pd.image} />
-                                <Card.Body>
+                            <Zoom>
+                                <Card className="card-height service-card">
+                                    <Card.Img variant="top" className="service-img" src={pd.image} />
+                                    <Card.Body>
 
-                                    <Card.Title>
-                                        {pd.title}
-                                    </Card.Title>
+                                        <Card.Title>
+                                            {pd.title}
+                                        </Card.Title>
 
-                                    <Card.Text>
-                                        <h6>${pd.price}</h6>
-                                    </Card.Text>
-                                </Card.Body>
-
-
-                                <button onClick={() => handleDeleteProduct(pd._id)} type="button" className="btn btn-outline-secondary service-btn">Delete This One</button>
+                                        <Card.Text>
+                                            <h6>${pd.price}</h6>
+                                        </Card.Text>
+                                    </Card.Body>
 
 
-                            </Card>
-                        </Zoom>
+                                    <button onClick={() => handleDeleteProduct(pd._id)} type="button" className="btn btn-outline-secondary service-btn">Delete This One</button>
 
-                    </Col>)
-                }
 
-            </Row>
+                                </Card>
+                            </Zoom>
+
+                        </Col>)
+                    }
+
+                </Row>}
         </Container>
     );
 };

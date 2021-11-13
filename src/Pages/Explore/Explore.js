@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Container, Dropdown, Row } from 'react-bootstrap';
+import { Card, Col, Container, Dropdown, Row, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Fade from 'react-reveal/Fade';
 import Rating from 'react-rating';
 import './Explore.css';
+import useAuth from '../../Hooks/useAuth';
 
 
 const Explore = () => {
     const [products, setProducts] = useState([]);
+    const { isLoading } = useAuth();
 
     useEffect(() => {
         fetch('https://limitless-everglades-29893.herokuapp.com/products')
@@ -31,44 +33,46 @@ const Explore = () => {
                 </Dropdown.Menu>
             </Dropdown>
 
-            <Row xs={1} md={3} className="g-5 mb-5 pb-5 container">
+            {isLoading ? <Spinner animation="border" />
+                :
+                <Row xs={1} md={3} className="g-5 mb-5 pb-5 container">
 
-                {
-                    products.map((pd) => <Col key={pd._id}>
+                    {
+                        products.map((pd) => <Col key={pd._id}>
 
-                        <Fade bottom>
-                            <Card className="card-height service-card">
-                                <Card.Img variant="top" className="service-img" src={pd.image} />
-                                <Card.Body>
+                            <Fade bottom>
+                                <Card className="card-height service-card">
+                                    <Card.Img variant="top" className="service-img" src={pd.image} />
+                                    <Card.Body>
 
-                                    <Card.Title>
-                                        {pd.title}
-                                    </Card.Title>
+                                        <Card.Title>
+                                            {pd.title}
+                                        </Card.Title>
 
-                                    <Card.Text>
-                                        <Rating
-                                            initialRating={pd.review}
-                                            readonly
-                                            emptySymbol="far fa-star"
-                                            fullSymbol="fas fa-star">
-                                        </Rating>
+                                        <Card.Text>
+                                            <Rating
+                                                initialRating={pd.review}
+                                                readonly
+                                                emptySymbol="far fa-star"
+                                                fullSymbol="fas fa-star">
+                                            </Rating>
 
-                                        <q className="d-block my-2 text-muted"> {pd.details.slice(0, 212)}</q>
-                                        <h6>${pd.price}</h6>
-                                    </Card.Text>
-                                </Card.Body>
+                                            <q className="d-block my-2 text-muted"> {pd.details.slice(0, 212)}</q>
+                                            <h6>${pd.price}</h6>
+                                        </Card.Text>
+                                    </Card.Body>
 
-                                <Link to={`/placeOrder/${pd._id}`}>
-                                    <button type="button" className="btn btn-outline-secondary service-btn">Book Now</button>
-                                </Link>
+                                    <Link to={`/placeOrder/${pd._id}`}>
+                                        <button type="button" className="btn btn-outline-secondary service-btn">Book Now</button>
+                                    </Link>
 
-                            </Card>
-                        </Fade>
+                                </Card>
+                            </Fade>
 
-                    </Col>)
-                }
+                        </Col>)
+                    }
 
-            </Row>
+                </Row>}
         </Container>
     );
 };

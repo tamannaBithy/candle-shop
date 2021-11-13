@@ -25,7 +25,7 @@ const Dashboard = () => {
     console.log(admin);
 
     return (
-        <Container className="my-5 pb-5">
+        <Container className="mb-5 pb-5">
 
             <Row xs={1} md={2} className=" my-5 py-5">
 
