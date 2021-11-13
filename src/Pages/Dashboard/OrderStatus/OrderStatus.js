@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
+import './OrderStatus.css';
+
 
 const OrderStatus = ({ pd, index }) => {
 
@@ -90,9 +92,13 @@ const OrderStatus = ({ pd, index }) => {
 
         <tr>
             <td>{index}</td>
+            <td>
+                <img className="order-img" src={pd.image} alt="" />
+            </td>
             <td>{pd.title}</td>
-            <td>{pd.price}</td>
+            <td>{pd.phoneNumber}</td>
             <td>{pd.email}</td>
+            <td>{pd.address}</td>
             <td>
                 <form onSubmit={handleSubmit(onSubmit)}>
 

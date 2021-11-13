@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Table } from 'react-bootstrap';
 import OrderStatus from '../OrderStatus/OrderStatus';
 
+
 const ManageOrders = () => {
 
     const [manageOrders, setManageOrders] = useState([]);
@@ -17,15 +18,19 @@ const ManageOrders = () => {
 
     return (
         <Container className="mt-5">
-            <h1>Total Booked Services : {manageOrders.length}</h1>
+            <h4 className="d-flex  justify-content-start font-monospace fw-bold">There Are Total {manageOrders.length} Orders to Review</h4>
 
-            <Table responsive bordered hover>
+            <hr className=" mb-4" />
+
+            <Table responsive bordered hover >
                 <thead >
                     <tr className="table-dark">
                         <th>#</th>
+                        <th>Image</th>
                         <th>Title</th>
-                        <th>Price</th>
-                        <th>email</th>
+                        <th>Contact</th>
+                        <th>Email</th>
+                        <th>Address</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>

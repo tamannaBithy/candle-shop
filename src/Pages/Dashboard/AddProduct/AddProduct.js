@@ -39,33 +39,46 @@ const AddProduct = () => {
 
     return (
         <Container>
+            <h4 className="font-monospace fw-bold pt-4">Add Your Own Candle <i class="fas fa-hanukiah"></i></h4>
+
+            <hr className="w-75 mb-4 mx-auto" />
+
+
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                     {...register("title", { required: true })}
                     placeholder="Title"
-                    className="p-2 m-2 w-100 input-field"
+                    className="p-2 m-2 w-50 input-field"
                 />
 
                 <input
                     {...register("details", { required: true })}
                     placeholder="Description"
-                    className="p-2 m-2 w-100 input-field"
+                    className="p-2 m-2 w-50 input-field"
                 />
 
                 <input
                     {...register("image", { required: true })}
                     placeholder="Image Link"
-                    className="p-2 m-2 w-100 input-field"
+                    className="p-2 m-2 w-50 input-field"
                 />
 
                 <input
                     {...register("price", { required: true })}
                     placeholder="Price"
                     type="number"
-                    className="p-2 m-2 w-100 input-field"
+                    className="p-2 m-2 w-50 input-field"
                 />
 
-                <select {...register("model")} className="p-2 m-2 w-100">
+                <input
+                    className="p-2 m-2 w-50 input-field"
+                    type="number"
+                    name="ratings"
+                    placeholder="ratings"
+                    {...register("review", { required: true, min: 0, max: 5 })}
+                />
+
+                <select {...register("model")} className="p-2 m-2 w-50">
                     <option value="premium">premium</option>
                     <option value="classic">classic</option>
                     <option value="business">business</option>
@@ -77,7 +90,7 @@ const AddProduct = () => {
                 <input
                     type="submit"
                     value="Add"
-                    className="btn btn-info w-50"
+                    className="btn btn-info w-25 mt-3"
                 />
             </form>
         </Container>

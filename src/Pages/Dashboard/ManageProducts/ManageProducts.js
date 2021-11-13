@@ -17,10 +17,10 @@ const ManageProducts = () => {
     }, [products, isDelete])
 
 
+
     // for delete
     const handleDeleteProduct = (id) => {
         // console.log(id);
-
 
         Swal.fire({
             title: 'Are you sure?',
@@ -62,6 +62,11 @@ const ManageProducts = () => {
 
     return (
         <Container>
+
+            <h4 className="font-monospace fw-bold pt-4">Manage All Products</h4>
+
+            <hr className="w-75 mb-3 mx-auto" />
+
             <Row xs={1} md={3} className="g-5 mb-5 pb-5 container">
 
                 {
@@ -77,13 +82,12 @@ const ManageProducts = () => {
                                     </Card.Title>
 
                                     <Card.Text>
-
                                         <h6>${pd.price}</h6>
                                     </Card.Text>
                                 </Card.Body>
 
 
-                                <button onClick={() => handleDeleteProduct(pd._id)} type="button" className="btn btn-outline-secondary service-btn">Delete Now</button>
+                                <button onClick={() => handleDeleteProduct(pd._id)} type="button" className="btn btn-outline-secondary service-btn">Delete This One</button>
 
 
                             </Card>

@@ -1,9 +1,11 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
+import Swal from 'sweetalert2';
 
 const MakeAdmin = () => {
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = (data) => {
         fetch("https://limitless-everglades-29893.herokuapp.com/makeAdmin", {
@@ -12,17 +14,33 @@ const MakeAdmin = () => {
             body: JSON.stringify(data),
         })
             .then((res) => res.json())
-            .then((result) => console.log(result));
-        console.log(data);
+            .then((result) => {
+                if (result) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Admin successfully added',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            });
+
+        reset()
     };
 
 
     return (
-        <div>
-            <h1>make admin</h1>
+        <Container>
+
+            <h4 className="font-monospace fw-bold pt-4">Make a Admin Whom You Want</h4>
+
+            <hr className="w-75 mb-5 mx-auto" />
+
+
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input
-                    className="input-field"
+                    className="p-3 m-3 w-50 input-field"
                     name="email"
                     placeholder="Email"
                     type="email"
@@ -31,12 +49,12 @@ const MakeAdmin = () => {
                 <br />
 
                 <input
-                    className="submit-btn btn btn-danger mt-3"
+                    className="btn btn-info w-25 mt-4"
                     type="submit"
-                    value="make as Admin"
+                    value="Make as Admin"
                 />
             </form>
-        </div>
+        </Container>
     );
 };
 

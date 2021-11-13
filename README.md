@@ -11,12 +11,14 @@ have a look here - https://react-candle-shop.web.app
 * React reveal - for animation
 * React Typist
 * React Rating
-* Sweetalert - for modal
+* React Googlebutton
+* Sweetalert2 - for modal
 * Fontawesome
 * Google-font
 * Firebase-authentication system!
 * Mongo-db
 * Axios
+* Material Ui
 
 #### & what can you do with this site ? ####
 * you can visit the website pages's without reloading
@@ -24,4 +26,4 @@ have a look here - https://react-candle-shop.web.app
 * visiting your cart
 * can delete any order as your wish
 * react router with the combination of react-bootstrap will make a better user-experience !!
-* can sign in with google & github
+* can sign in with google

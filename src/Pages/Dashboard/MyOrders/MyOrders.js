@@ -62,26 +62,35 @@ const MyOrders = () => {
 
     return (
         <Container className="mt-5">
-            <h1>Your Booked Service : {orders.length}</h1>
+            <h4 className="d-flex  justify-content-start font-monospace fw-bold">Greate, You Have Ordered {orders.length} Candles!</h4>
+
+            <hr className=" mb-4" />
 
             <Table responsive bordered hover>
                 <thead >
                     <tr className="table-dark">
                         <th>#</th>
+                        <th>Image</th>
                         <th>Title</th>
-                        <th>Price</th>
-                        <th>email</th>
+                        <th>Contact</th>
+                        <th>Email</th>
+                        <th>Address</th>
                         <th>Action</th>
                     </tr>
                 </thead>
+
                 {orders?.map((pd, index) => (
                     <tbody key={pd._id}>
                         <tr>
                             <td>{index}</td>
+                            <td>
+                                <img className="order-img" src={pd.image} alt="" />
+                            </td>
                             <td>{pd.title}</td>
-                            <td>{pd.price}</td>
+                            <td>{pd.phoneNumber}</td>
                             <td>{pd.email}</td>
-                            <td><button onClick={() => handleDeleteProduct(pd._id)} className="btn btn-danger m-2">delete</button></td>
+                            <td>{pd.address}</td>
+                            <td><i onClick={() => handleDeleteProduct(pd._id)} class="fas fa-trash-alt"></i></td>
                         </tr>
                     </tbody>
 

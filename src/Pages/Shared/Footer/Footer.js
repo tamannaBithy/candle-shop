@@ -18,7 +18,7 @@ const Footer = () => {
                             </div>
                             <div className="col-lg-5">
                                 <div className="button_box">
-                                    <a href="#" className="btn btn-warning">Contact Us Today</a>
+                                    <a href="#.." className="btn btn-warning">Contact Us Today</a>
                                 </div>
                             </div>
                         </div>
