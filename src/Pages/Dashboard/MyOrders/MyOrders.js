@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Table, Button, Spinner } from 'react-bootstrap';
+import { Container, Table, Button } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import useAuth from '../../../Hooks/useAuth';
 import Slide from 'react-reveal/Slide';
@@ -7,7 +7,7 @@ import Slide from 'react-reveal/Slide';
 
 const MyOrders = () => {
 
-    const { user, isLoading } = useAuth();
+    const { user } = useAuth();
 
     const [orders, setOrders] = useState([]);
     const [isDelete, setIsDelete] = useState(null);
@@ -68,55 +68,51 @@ const MyOrders = () => {
             </Slide>
             <hr className=" mb-5" />
 
-            {isLoading ? <Spinner animation="border" />
+
+            {orders.length === 0 ?
+
+                <div className="d-flex justify-content-start gap-3 pt-3">
+                    <div><i className="fas fa-info-circle"></i></div>
+                    <p className=" text-muted">No data found at this moment.</p>
+                </div>
 
                 :
-                <div>
-                    {orders.length === 0 ?
 
-                        <div className="d-flex justify-content-start gap-3 pt-3">
-                            <div><i className="fas fa-info-circle"></i></div>
-                            <p className=" text-muted">No data found at this moment.</p>
-                        </div>
+                <Table responsive bordered hover>
+                    <thead >
+                        <tr className="table-dark">
+                            <th>#</th>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Contact</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
 
-                        :
+                    {orders?.map((pd, index) => (
+                        <tbody key={pd._id}>
+                            <tr>
+                                <td>{index + 1}</td>
+                                <td>
+                                    <img className="order-img" src={pd.image} alt="" />
+                                </td>
+                                <td>{pd.title}</td>
+                                <td>{pd.phoneNumber}</td>
+                                <td>{pd.email}</td>
+                                <td>{pd.address}</td>
 
-                        <Table responsive bordered hover>
-                            <thead >
-                                <tr className="table-dark">
-                                    <th>#</th>
-                                    <th>Image</th>
-                                    <th>Title</th>
-                                    <th>Contact</th>
-                                    <th>Email</th>
-                                    <th>Address</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
+                                <td>
+                                    <Button variant="light">
+                                        <i onClick={() => handleDeleteProduct(pd._id)} className="fas fa-trash-alt"></i>
+                                    </Button>
+                                </td>
+                            </tr>
+                        </tbody>
 
-                            {orders?.map((pd, index) => (
-                                <tbody key={pd._id}>
-                                    <tr>
-                                        <td>{index + 1}</td>
-                                        <td>
-                                            <img className="order-img" src={pd.image} alt="" />
-                                        </td>
-                                        <td>{pd.title}</td>
-                                        <td>{pd.phoneNumber}</td>
-                                        <td>{pd.email}</td>
-                                        <td>{pd.address}</td>
-
-                                        <td>
-                                            <Button variant="light">
-                                                <i onClick={() => handleDeleteProduct(pd._id)} className="fas fa-trash-alt"></i>
-                                            </Button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-
-                            ))}
-                        </Table>}
-                </div>}
+                    ))}
+                </Table>}
 
         </Container>
     );
