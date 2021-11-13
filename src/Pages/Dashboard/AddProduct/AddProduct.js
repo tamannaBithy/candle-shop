@@ -39,7 +39,7 @@ const AddProduct = () => {
 
     return (
         <Container>
-            <h4 className="font-monospace fw-bold pt-4">Add Your Own Candle <i className="fas fa-hanukiah"></i></h4>
+            <h4 className="font-monospace fw-bold pt-5">Add One More Candle <i className="fas fa-hanukiah"></i></h4>
 
             <hr className="w-75 mb-4 mx-auto" />
 
@@ -58,12 +58,6 @@ const AddProduct = () => {
                 />
 
                 <input
-                    {...register("image", { required: true })}
-                    placeholder="Image Link"
-                    className="p-2 m-2 w-50 input-field"
-                />
-
-                <input
                     {...register("price", { required: true })}
                     placeholder="Price"
                     type="number"
@@ -78,11 +72,18 @@ const AddProduct = () => {
                     {...register("review", { required: true, min: 0, max: 5 })}
                 />
 
-                <select {...register("model")} className="p-2 m-2 w-50">
-                    <option value="premium">premium</option>
-                    <option value="classic">classic</option>
-                    <option value="business">business</option>
-                </select>
+                <input
+                    {...register("image", { required: true })}
+                    placeholder="Image Link"
+                    className="p-2 m-2 w-50 input-field"
+                />
+
+                <p className="text-muted">
+                    <small>
+                        * Please use a image link that hosted in imagebb <br />or you can use this https://i.ibb.co/bLHrN59/port-1-img-02.jpg
+                    </small>
+                </p>
+
                 <br />
 
                 {errors.exampleRequired && <span>This field is required</span>}
@@ -90,7 +91,7 @@ const AddProduct = () => {
                 <input
                     type="submit"
                     value="Add"
-                    className="btn btn-info w-25 mt-3"
+                    className="btn btn-info w-25 mt-2"
                 />
             </form>
         </Container>

@@ -24,29 +24,40 @@ const ManageOrders = () => {
             </Slide>
             <hr className=" mb-5" />
 
-            <Table responsive bordered hover >
-                <thead >
-                    <tr className="table-dark">
-                        <th>#</th>
-                        <th>Image</th>
-                        <th>Title</th>
-                        <th>Contact</th>
-                        <th>Email</th>
-                        <th>Address</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
+            {manageOrders.length === 0 ?
 
-                <tbody>
+                <div className="d-flex justify-content-start gap-3 pt-3">
+                    <div><i className="fas fa-info-circle"></i></div>
+                    <p className=" text-muted">No data found at this moment.</p>
+                </div>
 
-                    {manageOrders?.map((pd, index) => (
-                        <OrderStatus key={pd._id} pd={pd} index={index}></OrderStatus>
-                    ))}
+                :
 
-                </tbody>
+                <Table responsive bordered hover >
+                    <thead >
+                        <tr className="table-dark">
+                            <th>#</th>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Contact</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
 
-            </Table>
+                    <tbody>
+
+                        {manageOrders?.map((pd, index) => (
+                            <OrderStatus key={pd._id} pd={pd} index={index}></OrderStatus>
+                        ))}
+
+                    </tbody>
+
+                </Table>
+
+            }
 
         </Container>
     );

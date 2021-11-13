@@ -33,7 +33,7 @@ const MakeAdmin = () => {
     return (
         <Container>
 
-            <h4 className="font-monospace fw-bold pt-4">Make a Admin Whom You Want</h4>
+            <h4 className="font-monospace fw-bold pt-5">Make a Admin Whom You Want</h4>
 
             <hr className="w-75 mb-5 mx-auto" />
 

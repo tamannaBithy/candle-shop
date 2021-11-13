@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
 import './OrderStatus.css';
+import { Button } from 'react-bootstrap';
 
 
 const OrderStatus = ({ pd, index }) => {
@@ -91,7 +92,7 @@ const OrderStatus = ({ pd, index }) => {
 
 
         <tr>
-            <td>{index}</td>
+            <td>{index + 1}</td>
             <td>
                 <img className="order-img" src={pd.image} alt="" />
             </td>
@@ -114,10 +115,14 @@ const OrderStatus = ({ pd, index }) => {
                     <input type="submit" className="btn btn-outline-dark btn-sm ms-2" value="Update" />
 
                 </form>
+            </td>
 
+            <td>
+                <Button variant="light">
+                    <i onClick={() => handleDeleteProduct(pd._id)} className="fas fa-trash-alt"></i>
+                </Button>
 
             </td>
-            <td><i onClick={() => handleDeleteProduct(pd._id)} className="fas fa-trash-alt"></i></td>
 
         </tr>
 

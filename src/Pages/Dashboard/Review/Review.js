@@ -39,7 +39,7 @@ const Review = () => {
     return (
         <Container>
 
-            <h4 className="font-monospace fw-bold pt-4">Write Down Your Review</h4>
+            <h4 className="font-monospace fw-bold pt-5">Write Down Your Review</h4>
 
             <hr className="w-75 mb-5 mx-auto" />
 
@@ -63,7 +63,7 @@ const Review = () => {
                     className="input-field"
                     type="number"
                     name="ratings"
-                    placeholder="ratings"
+                    placeholder="Rate us"
                     {...register("ratings", { required: true, min: 0, max: 5 })}
                 />
                 <br />

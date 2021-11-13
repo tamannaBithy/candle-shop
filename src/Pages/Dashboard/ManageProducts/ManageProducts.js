@@ -63,7 +63,7 @@ const ManageProducts = () => {
     return (
         <Container>
 
-            <h4 className="font-monospace fw-bold pt-4">Manage All Products</h4>
+            <h4 className="font-monospace fw-bold pt-5">Manage All Products</h4>
 
             <hr className="w-75 mb-3 mx-auto" />
 
