@@ -15,6 +15,7 @@ import MyOrders from '../MyOrders/MyOrders';
 import Payment from '../Payment/Payment';
 import Review from '../Review/Review';
 import './Dashboard.css';
+import Slide from 'react-reveal/Slide';
 
 
 const Dashboard = () => {
@@ -30,21 +31,24 @@ const Dashboard = () => {
 
                 <Col xs={12} md={2}>
 
-                    <h5>Dashboard</h5>
+                    <Slide left>
+                        <h4 className="mt-5 mb-3 font-monospace fw-bold">Dashboard</h4>
+                    </Slide>
+                    <hr />
 
                     {
                         !admin &&
                         <div>
                             <Link to={`${url}`}>
-                                <li className="dashboard-menu mt-5 cool-link mb-2 "> <i class="fas fa-table me-3"></i>My Orders</li>
+                                <li className="dashboard-menu mt-5 cool-link mb-2 "> <i className="fas fa-table me-3"></i>My Orders</li>
                             </Link>
 
                             <Link to={`${url}/pay`} className="dash-link">
-                                <li className="dashboard-menu mt-3 cool-link mb-2 me-3"><i class="fab fa-cc-amazon-pay me-3"></i>Payment</li>
+                                <li className="dashboard-menu mt-3 cool-link mb-2 me-3"><i className="fab fa-cc-amazon-pay me-3"></i>Payment</li>
                             </Link>
 
                             <Link to={`${url}/review`} className="dash-link">
-                                <li className="dashboard-menu mt-3 cool-link mb-2 me-3"><i class="fas fa-feather-alt me-4"></i>Review</li>
+                                <li className="dashboard-menu mt-3 cool-link mb-2 me-3"><i className="fas fa-feather-alt me-4"></i>Review</li>
                             </Link>
                         </div>
                     }
@@ -54,19 +58,19 @@ const Dashboard = () => {
                         admin &&
                         <div>
                             <Link to={`${url}`}>
-                                <li className="dashboard-menu mt-5 cool-link mb-2"> <i class="fas fa-table me-1"></i> Manage All Orders</li>
+                                <li className="dashboard-menu mt-5 cool-link mb-2"> <i className="fas fa-table me-1"></i> Manage All Orders</li>
                             </Link>
 
                             <Link to={`${url}/addProducts`} className="dash-link">
-                                <li className="dashboard-menu mt-3 cool-link mb-2 me-4"> <i class="fas fa-folder-plus me-3"></i>Add A Product</li>
+                                <li className="dashboard-menu mt-3 cool-link mb-2 me-4"> <i className="fas fa-folder-plus me-3"></i>Add A Product</li>
                             </Link>
 
                             <Link to={`${url}/makeAdmin`} className="dash-link">
-                                <li className="dashboard-menu mt-2 mt-3 cool-link mb-2 me-4"> <i class="fas fa-user-cog me-4"></i>Make Admin</li>
+                                <li className="dashboard-menu mt-2 mt-3 cool-link mb-2 me-4"> <i className="fas fa-user-cog me-4"></i>Make Admin</li>
                             </Link>
 
                             <Link to={`${url}/manageProducts`} className="dash-link">
-                                <li className="dashboard-menu mt-2 mt-3 cool-link mb-2"> <i class="fas fa-tasks me-3"></i>Manage Products</li>
+                                <li className="dashboard-menu mt-2 mt-3 cool-link mb-2"> <i className="fas fa-tasks me-3"></i>Manage Products</li>
                             </Link>
                         </div>
                     }

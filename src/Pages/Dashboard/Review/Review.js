@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import useAuth from '../../../Hooks/useAuth';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Container } from 'react-bootstrap';
 
 
 const Review = () => {
@@ -36,8 +37,12 @@ const Review = () => {
 
 
     return (
-        <div>
-            <h1>Review</h1>
+        <Container>
+
+            <h4 className="font-monospace fw-bold pt-4">Write Down Your Review</h4>
+
+            <hr className="w-75 mb-5 mx-auto" />
+
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                     className="input-field"
@@ -64,12 +69,12 @@ const Review = () => {
                 <br />
 
                 <input
-                    className="submit-btn btn btn-danger mt-3"
+                    className="submit-btn btn btn-info mt-4"
                     type="submit"
-                    value="review"
+                    value="Review"
                 />
             </form>
-        </div>
+        </Container>
     );
 };
 

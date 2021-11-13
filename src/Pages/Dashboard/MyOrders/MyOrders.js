@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Table } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import useAuth from '../../../Hooks/useAuth';
+import Slide from 'react-reveal/Slide';
 
 
 const MyOrders = () => {
@@ -62,9 +63,10 @@ const MyOrders = () => {
 
     return (
         <Container className="mt-5">
-            <h4 className="d-flex  justify-content-start font-monospace fw-bold">Greate, You Have Ordered {orders.length} Candles!</h4>
-
-            <hr className=" mb-4" />
+            <Slide right>
+                <h4 className="d-flex  justify-content-start font-monospace fw-bold">Greate, You Have Ordered {orders.length} Candles!</h4>
+            </Slide>
+            <hr className=" mb-5" />
 
             <Table responsive bordered hover>
                 <thead >
@@ -90,7 +92,7 @@ const MyOrders = () => {
                             <td>{pd.phoneNumber}</td>
                             <td>{pd.email}</td>
                             <td>{pd.address}</td>
-                            <td><i onClick={() => handleDeleteProduct(pd._id)} class="fas fa-trash-alt"></i></td>
+                            <td><i onClick={() => handleDeleteProduct(pd._id)} className="fas fa-trash-alt"></i></td>
                         </tr>
                     </tbody>
 

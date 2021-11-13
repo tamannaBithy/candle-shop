@@ -49,7 +49,7 @@ const MakeAdmin = () => {
                 <br />
 
                 <input
-                    className="btn btn-info w-25 mt-4"
+                    className=" btn btn-info mt-4"
                     type="submit"
                     value="Make as Admin"
                 />

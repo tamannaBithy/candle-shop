@@ -103,7 +103,7 @@ const OrderStatus = ({ pd, index }) => {
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <select
-                        class="btn btn-outline-dark btn-sm"
+                        className="btn btn-outline-dark btn-sm"
                         onClick={() => handleOrderId(pd?._id)}
                         {...register("status")}
                     >
@@ -111,13 +111,13 @@ const OrderStatus = ({ pd, index }) => {
                         <option value="Shipped">Shipped</option>
                         <option value="Delivered">Delivered</option>
                     </select>
-                    <input type="submit" class="btn btn-outline-dark btn-sm ms-2" value="Update" />
+                    <input type="submit" className="btn btn-outline-dark btn-sm ms-2" value="Update" />
 
                 </form>
 
 
             </td>
-            <td><i onClick={() => handleDeleteProduct(pd._id)} class="fas fa-trash-alt"></i></td>
+            <td><i onClick={() => handleDeleteProduct(pd._id)} className="fas fa-trash-alt"></i></td>
 
         </tr>
 

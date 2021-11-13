@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Table } from 'react-bootstrap';
 import OrderStatus from '../OrderStatus/OrderStatus';
+import Slide from 'react-reveal/Slide';
 
 
 const ManageOrders = () => {
@@ -18,9 +19,10 @@ const ManageOrders = () => {
 
     return (
         <Container className="mt-5">
-            <h4 className="d-flex  justify-content-start font-monospace fw-bold">There Are Total {manageOrders.length} Orders to Review</h4>
-
-            <hr className=" mb-4" />
+            <Slide right>
+                <h4 className="d-flex  justify-content-start font-monospace fw-bold">There Are Total {manageOrders.length} Orders to Review</h4>
+            </Slide>
+            <hr className=" mb-5" />
 
             <Table responsive bordered hover >
                 <thead >

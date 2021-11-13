@@ -1,5 +1,5 @@
-## Here the site is with CRUD operation! ##
-in this site i've used mongodb database. this is the unique part of this site.
+## A Fullstack Website! ##
+A fullstack website along with mongodb database & CRUD operation!
 
 have a look here - https://react-candle-shop.web.app
 
@@ -21,9 +21,12 @@ have a look here - https://react-candle-shop.web.app
 * Material Ui
 
 #### & what can you do with this site ? ####
-* you can visit the website pages's without reloading
-* can book a service
-* visiting your cart
-* can delete any order as your wish
-* react router with the combination of react-bootstrap will make a better user-experience !!
-* can sign in with google
+* you can visit the website components without reloading
+* can buy a product
+* can visit your cart
+* can delete any of order as your wish
+* there is a dashboard for normal user & for admin
+* an user can give a review
+* an admin can update a product status & can make a admin too
+* a admin also can delete any product he wants
+* can sign in with google & can register a account

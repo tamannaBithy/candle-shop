@@ -39,7 +39,7 @@ const AddProduct = () => {
 
     return (
         <Container>
-            <h4 className="font-monospace fw-bold pt-4">Add Your Own Candle <i class="fas fa-hanukiah"></i></h4>
+            <h4 className="font-monospace fw-bold pt-4">Add Your Own Candle <i className="fas fa-hanukiah"></i></h4>
 
             <hr className="w-75 mb-4 mx-auto" />
 

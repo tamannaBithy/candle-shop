@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import Fade from 'react-reveal/Fade';
+import Zoom from 'react-reveal/Zoom';
 import Swal from 'sweetalert2';
 
 
@@ -72,7 +72,7 @@ const ManageProducts = () => {
                 {
                     products.map((pd) => <Col key={pd._id}>
 
-                        <Fade bottom>
+                        <Zoom>
                             <Card className="card-height service-card">
                                 <Card.Img variant="top" className="service-img" src={pd.image} />
                                 <Card.Body>
@@ -91,7 +91,7 @@ const ManageProducts = () => {
 
 
                             </Card>
-                        </Fade>
+                        </Zoom>
 
                     </Col>)
                 }
