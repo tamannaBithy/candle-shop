@@ -34,14 +34,14 @@ const Products = () => {
 
                             <Card className="card-height service-card">
 
-                                <Row xs={1} md={2}>
+                                <Row md={2}>
                                     {/* <Col className="hover01">
                                         <figure> <Card.Img variant="top" className="service-img" src={pd.image} /></figure>
 
                                     </Col> */}
 
                                     <Col className="img-effect">
-                                        <Card.Img variant="top" className="service-img" src={pd.image} />
+                                        <Card.Img variant="top" className="service-img img-fluid" src={pd.image} />
                                         <div className="middle">
                                             <i className="fas fa-heart text fs-4"></i>
                                             <i className="fab fa-instagram text fs-4"></i>

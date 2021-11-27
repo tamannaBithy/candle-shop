@@ -90,7 +90,7 @@ const ManageProducts = () => {
                                     </Card.Text>
                                 </Card.Body>
 
-                                <button onClick={() => handleDeleteProduct(pd._id)} type="button" className="btn btn-outline-secondary service-btn">Delete This One</button>
+                                <button onClick={() => handleDeleteProduct(pd._id)} type="button" className="btn btn-outline-secondary service-btn" disabled>Delete This One</button>
 
                             </Card>
                         </Zoom>
