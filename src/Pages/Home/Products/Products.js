@@ -4,6 +4,7 @@ import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
 import Fade from 'react-reveal/Fade';
 import './Products.css';
+import Zoom from 'react-reveal/Zoom';
 
 
 const Products = () => {
@@ -21,7 +22,12 @@ const Products = () => {
         <Container className="py-5">
 
             <h5 className="font-monospace  text-muted">Candles & Diffusers</h5>
-            <h1 className="py-5 letter-spacing fw-bold text-uppercase" >PICKS FOR THIS SEASON</h1>
+
+            <h1 className="py-5 letter-spacing fw-bold text-uppercase" >
+                <Zoom bottom cascade>
+                    PICKS FOR THIS SEASON
+                </Zoom>
+            </h1>
 
 
             <Row xs={1} md={2} className="g-5 mb-5 pb-5 container">
